@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { StatusBar } from 'expo-status-bar';
 import { ImageComponent, StyleSheet, Text, View, Image, Button, ScrollView, FlatList } from 'react-native';
 import axios from 'axios'
 import RecipeCard from './RecipeCard'
@@ -12,7 +11,7 @@ const RecipeFull = () => {
             const resp = await axios.get('http://localhost:5001')
             console.log(resp.data)
             setRecipeResults(resp.data)
-            
+
         } catch (error) {
             console.log(error)
 
@@ -21,28 +20,23 @@ const RecipeFull = () => {
 
 
     useEffect(() => {
-       async function getRecipes() { 
-        const recipes = await getAllRecipes()
-    }
-     getRecipes()}, []);
+        async function getRecipes() {
+            const recipes = await getAllRecipes()
+        }
+        getRecipes()
+    }, []);
 
-  
+
     return (
-        <>
-            <View>
-
-                
-                    {recipeResults.map(recipe => (
-                      <RecipeCard
-                                
-                                {...recipe}
-                            />
-                    ))}
-             
-
-            </View>
-
-        </>
+        <View>
+            
+                {recipeResults.map(recipe => (
+                    <RecipeCard
+                        {...recipe}
+                    />
+                ))}
+           
+        </View>
     )
 
 

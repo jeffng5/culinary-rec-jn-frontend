@@ -1,8 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
 import { ImageComponent, StyleSheet, Text, View, Image, Button, ScrollView, FlatList } from 'react-native';
-import { NavigationContainer } from'@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack' 
-import { Linking } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import RecipeFull from './components/RecipeFull';
 import Toolbar from './components/Toolbar';
 
@@ -10,37 +8,40 @@ import Toolbar from './components/Toolbar';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
- 
+
   return (
-   
 
-<>
- <Toolbar/>
 
-<RecipeFull /> 
+    <View style={styles.container}>
+      <View>
+        <Toolbar />
+      </View>
 
-</>
-  );
+      <ScrollView style={styles.placement}>
+        <RecipeFull />
+      </ScrollView>
+
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 30,
+    flexDirection: 'column',
+    paddingTop: 10,
     backgroundColor: '#456178',
     color: 'white',
-    fontWeight: 'bold'
-  },
-
-  dummyText: {
-    marginTop: 40,
-    marginLeft: 10,
-    color: 'white',
     fontWeight: 'bold',
-    fontSize: 20,
-    textAlign: 'left',
-    flex: 1,
-    paddingRight: 0
+    height: '100%',
+    justifyContent: 'stretch'
+  },
+  placement: {
+    fontSize: 10,
+    backgroundColor: '#456178', 
+    flexDirection: 'column', 
+    paddingTop: 25,
+    fontWeight: 'bold'
   }
 
 

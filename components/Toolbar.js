@@ -5,7 +5,7 @@ export default function Toolbar()  {
     return (
         <>
          <View style={styles.container}>
-<View style = {{width: '100%', flexDirection: 'row', justifyContent: 'flex-start'}}> 
+<View style = {{flexDirection: 'row'}}> 
 <Image style={styles.imgSize} source={require('../assets/logo.png')} />
 <Text style = {styles.dummyText}>Chef Jeff's recipes</Text>
  </View>
@@ -37,7 +37,7 @@ export default function Toolbar()  {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+    flex: 1,
       paddingTop: 30,
       backgroundColor: '#456178',
       color: 'white',
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'left',
-    flex: 1,
     paddingRight: 0
   }
 }

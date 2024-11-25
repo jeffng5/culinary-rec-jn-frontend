@@ -1,16 +1,26 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native'
 
 
-const RecipeCard = ({name}) => {
+const RecipeCard = ({ name }) => {
     return (
-        <>
-        <View>
-            <Text>
+
+            <Text style={styles.textStyle}>
                 {name}
             </Text>
-        </View>
-        </>
+        
     )
 }
+
+
+
+const styles = StyleSheet.create({
+
+    textStyle: {
+        color: 'white',
+        paddingLeft: 50,
+        paddingBottom: 10
+    }
+});
+
 
 export default RecipeCard;
