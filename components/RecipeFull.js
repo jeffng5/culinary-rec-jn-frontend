@@ -8,9 +8,10 @@ const RecipeFull = () => {
 
     const getAllRecipes = async function () {
         try {
-            const resp = await axios.get('https://localhost:80')
+            const resp = await axios.get('http://localhost:5431')
             console.log(resp.data)
             setRecipeResults(resp.data)
+            req.end()
         } catch (error) {
             console.log(error)
 
@@ -24,6 +25,7 @@ const RecipeFull = () => {
     }
      getRecipes()}, []);
 
+    console.log('test')
     console.log(recipeResults)
     console.log('HERE')
     return (
