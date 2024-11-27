@@ -38,17 +38,17 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     // paddingTop: 10,
-    backgroundColor: '#456178',
-    color: 'white',
+    backgroundColor: 'white',
+    color: 'black',
     fontWeight: 'bold',
     height: '100%',
     justifyContent: 'stretch'
   },
   placement: {
     fontSize: 10,
-    backgroundColor: '#456178',
+    backgroundColor: 'white',
     flexDirection: 'column',
-    paddingTop: 25,
+    paddingTop: 10,
     fontWeight: 'bold'
   },
 

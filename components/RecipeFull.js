@@ -10,7 +10,7 @@ const Chinese = 'Chinese'
 const Asian = 'Asian'
 const Japanese = 'Japanese'
 const fusion = 'fusion'
-const family_style = 'family_style'
+const family_style = 'family-style'
 const veggie = 'veggie'
 const low_carb = 'low-carb'
 const seafood = 'seafood'
@@ -76,7 +76,7 @@ const RecipeFull = () => {
     console.log(tags)
     return (
         <>
-        <View style = {{flexDirection:'row', flexWrap:'wrap', marginLeft: 30, paddingTop: 10, gap: 20 }}>
+        <View style = {{flexDirection:'row', flexWrap:'wrap', marginLeft: 30, paddingTop: 10, gap: 20, width: '75%' }}>
     
         <TagButtons {...1-2}>1-2</TagButtons>       
         <TagButtons {...Italian}>Italian</TagButtons> 
@@ -99,8 +99,10 @@ const RecipeFull = () => {
         <View style={{paddingTop: 30}}>
             
                 {recipeResults.map(recipe => (
+                    
                     <RecipeCard
-                        {...recipe}
+                        key = {recipe.id}    
+                        name = {recipe.name}
                     />
                 ))}
            

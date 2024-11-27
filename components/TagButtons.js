@@ -4,14 +4,8 @@ import { TagContext } from '../hooks/TagContext'
 
 function TagButtons({children}) {
 
-
-
-
-
     const [isPressed, setIsPressed] = useState(false)
     const [tagValues, setTagValues] = useState([])
-
-
 
     function pressHandler(e) {
 
@@ -24,9 +18,6 @@ function TagButtons({children}) {
             console.log(tagValues)
             let ans = JSON.stringify(children)
             console.log(ans)
-         
-           
-         
         
             console.log('button pressed')
        
@@ -84,7 +75,7 @@ const styles = StyleSheet.create({
         borderRadius: 18,
         paddingVertical: 5,
         paddingHorizontal: 10,
-        backgroundColor: '#ffa500'
+        backgroundColor: '#ffa500',
     },
     buttonText: {
         color: 'white',
@@ -95,7 +86,7 @@ const styles = StyleSheet.create({
         borderRadius: 18,
         paddingVertical: 5,
         paddingHorizontal: 10,
-        opacity: '75%',
+        opacity: '75',
     }
 
 

@@ -1,13 +1,17 @@
-import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
 
 
-const RecipeCard = ({ name }) => {
+const RecipeCard = ({id, name }) => {
+   
     return (
-
+        <>
+        
+       
             <Text style={styles.textStyle}>
+                {id}
                 {name}
             </Text>
-        
+        </>
     )
 }
 
@@ -16,9 +20,10 @@ const RecipeCard = ({ name }) => {
 const styles = StyleSheet.create({
 
     textStyle: {
-        color: 'white',
+        color: 'black',
         paddingLeft: 50,
-        paddingBottom: 10
+        paddingBottom: 10,
+        fontSize: 18
     }
 });
 
