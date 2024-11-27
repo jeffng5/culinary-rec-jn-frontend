@@ -3,6 +3,11 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import RecipeFull from './components/RecipeFull';
 import Toolbar from './components/Toolbar';
+import RecipeTag from './components/RecipeTag';
+
+import { TagContextProvider } from './hooks/TagContext';
+
+
 
 
 
@@ -11,17 +16,20 @@ export default function App() {
 
   return (
 
-
     <View style={styles.container}>
       <View>
         <Toolbar />
       </View>
 
-      <ScrollView style={styles.placement}>
-        <RecipeFull />
-      </ScrollView>
-
+      <View style= {{flex:1, flexDirection: 'column', justifyContent: 'flex-start'}}>
+        <ScrollView style={styles.placement}>
+          <TagContextProvider>
+          <RecipeFull />
+          </TagContextProvider>
+        </ScrollView>
+      </View>
     </View>
+
   )
 }
 
@@ -29,7 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    paddingTop: 10,
+    // paddingTop: 10,
     backgroundColor: '#456178',
     color: 'white',
     fontWeight: 'bold',
@@ -38,11 +46,11 @@ const styles = StyleSheet.create({
   },
   placement: {
     fontSize: 10,
-    backgroundColor: '#456178', 
-    flexDirection: 'column', 
+    backgroundColor: '#456178',
+    flexDirection: 'column',
     paddingTop: 25,
     fontWeight: 'bold'
-  }
+  },
 
 
 });
