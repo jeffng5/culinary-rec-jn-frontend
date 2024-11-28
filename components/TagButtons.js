@@ -38,7 +38,7 @@ function TagButtons({children}) {
 
     if (isPressed == false) {
         return (
-            <>
+            <View>
                 <Pressable style={styles.buttons} onPress={pressHandler}>
                     <View style={styles.buttons}>
                         <Text style={styles.buttonText}>
@@ -47,13 +47,13 @@ function TagButtons({children}) {
                     </View>
                 </Pressable>
 
-            </>
+            </View>
         )
     }
     if (isPressed == true) {
 
         return (
-            <>
+            
             <Pressable style={styles.buttonClick} onPress={pressHandler}>
                 <View style={styles.buttons}>
                     <Text style={styles.buttonText}>
@@ -61,8 +61,7 @@ function TagButtons({children}) {
                     </Text>
                 </View>
             </Pressable>
-          
-            </>
+
         )
     };
 
@@ -71,7 +70,7 @@ function TagButtons({children}) {
 
 const styles = StyleSheet.create({
     buttons: {
-        padding: 4,
+        padding: 1,
         borderRadius: 18,
         paddingVertical: 5,
         paddingHorizontal: 10,
@@ -82,12 +81,12 @@ const styles = StyleSheet.create({
     },
 
     buttonClick: {
-        padding: 4,
+        padding: 1,
         borderRadius: 18,
         paddingVertical: 5,
         paddingHorizontal: 10,
-        opacity: '75',
-    }
+        // opacity: '75',
+    }, 
 
 
 }

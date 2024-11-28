@@ -76,8 +76,9 @@ const RecipeFull = () => {
     console.log(tags)
     return (
         <>
-        <View style = {{flexDirection:'row', flexWrap:'wrap', marginLeft: 30, paddingTop: 10, gap: 20, width: '75%' }}>
-    
+  
+        <View style = {{flexDirection:'row', flexWrap:'wrap', marginLeft: 30, gap: 20, paddingTop: 0, marginTop: 10, marginBottom: 20 }}>
+   
         <TagButtons {...1-2}>1-2</TagButtons>       
         <TagButtons {...Italian}>Italian</TagButtons> 
         <TagButtons {...American} >American</TagButtons> 
@@ -96,17 +97,17 @@ const RecipeFull = () => {
         <TagButtons {...pork}>pork</TagButtons>
       
         </View>
-        <View style={{paddingTop: 30}}>
-            
+    
                 {recipeResults.map(recipe => (
-                    
+                        
                     <RecipeCard
                         key = {recipe.id}    
                         name = {recipe.name}
-                    />
+             />       
+          
                 ))}
-           
-        </View>
+    
+          
         </>
     )
 
