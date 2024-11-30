@@ -15,8 +15,8 @@ export default function Toolbar()  {
       <Stack.Screen name= 'biography' component = {biographyScreen} />
     </Stack.Navigator>
   </NavigationContainer> */}
- <View style = {{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 40, marginRight: 40, justifyContent: 'center'}}>
-  <Text style={styles.linkText}>home</Text>
+ <View style = {{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 45, marginRight: 40, justifyContent: 'center'}}>
+  {/* <Text style={styles.linkText}>home</Text> */}
 
   <Text style={styles.linkText}>favorites</Text>
 
@@ -39,7 +39,7 @@ export default function Toolbar()  {
  
       linkText: {
         color: 'black', 
-        fontSize: 18,
+        fontSize: 17,
         marginTop: 10,
         marginRight: 35
       },

@@ -21,16 +21,16 @@ const Health = () => {
 
 const styles = StyleSheet.create({
     heading : {
-        flexWrap: 'flex',
-        marginLeft: 30,
+       
+        marginLeft: 12,
         marginRight: 30,
         fontSize : 38,
         fontStyle: 'bold',
     },
     body : {
         flexWrap: 'flex',
-        width: '20%',
-        marginLeft: 30,
+        width: '17%',
+        marginLeft: 12,
     }
 
 })

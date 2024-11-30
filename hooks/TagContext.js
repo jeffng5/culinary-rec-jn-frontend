@@ -1,27 +1,37 @@
 import { createContext, useState } from 'react';
 
-const TagContext = createContext({ tag : [] });
+const TagContext = createContext({ 
+    
+    tags : [], setTags: () => ([]), 
+    // tagFunction : addTagHandler, removeTagFunction : removeTagHandler 
+
+});
 
 export function TagContextProvider(props) {
 
-    // const [tags, setTags] = useState([])
+    const [tags, setTags] = useState([])
 
-    // function addTagHandler(props) {}
-    //     setTags((prevUserTag)=> {
-    //         return prevUserTag.concat(props)
-    //     })
+
     
     
-    // function removeTagHandler(tagg) {
-    //     setTags(prevUserTag => {
-    //         return prevUserTag.filter(thing => thing.tag !== tagg);
-    //     })
-    // }
+    function addTagHandler(props) {
+        setTags((prevUserTag)=> [...prevUserTag, props]);
+        };
     
-    const context = {tag : []} 
+    
+    function removeTagHandler(props) {
+        setTags(prevUserTag => {
+            return prevUserTag.filter((mealId) => mealId !== props);
+        })
+    }
+    
+    const context = {tags, setTags,  
     // tagFunction : addTagHandler,
-    // removeTagFunction : removeTagHandler};
+    // removeTagFunction : removeTagHandler
 
+};
+    console.log({tags})
+    console.log({addTagHandler})
     return <TagContext.Provider value= {context}>
         {props.children}
     </TagContext.Provider>

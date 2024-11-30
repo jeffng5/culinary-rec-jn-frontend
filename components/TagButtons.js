@@ -1,41 +1,43 @@
 import { View, Text, Pressable, StyleSheet } from 'react-native'
 import { useState, useContext } from 'react';
-import { TagContext } from '../hooks/TagContext'
+import  TagContext  from '../hooks/TagContext'
 
-function TagButtons({children}) {
 
+function TagButtons({children, onPress}) {
+   
+    const {tags, setTags } = useContext(TagContext)
     const [isPressed, setIsPressed] = useState(false)
     const [tagValues, setTagValues] = useState([])
 
-    function pressHandler(e) {
 
+    function pressHandler(e) {
+        
+        let ans = JSON.stringify(children)
+        onPress && onPress()
         if (isPressed == false) {
-           
+            onPress()
             setIsPressed(true)
             e.preventDefault();
-            console.log(children)
             setTagValues(children)
-            console.log(tagValues)
-            let ans = JSON.stringify(children)
-            console.log(ans)
-        
+            console.log('tagValues: ', tagValues)
+            console.log('HERE:', ans)
             console.log('button pressed')
-       
+            setTags([...tags, ans])
             return tagValues
-                    
         }
-
+     
         if (isPressed == true) {
+            
+            setTags(tags.filter(tag => tag !== ans))
             setIsPressed(false)
             e.preventDefault();
-            setTagValues([tagValues.filter(value => value !== { children })])
+            setTagValues(tagValues.filter(value => value !== { children }))
             console.log('button is unselected')
             console.log({ tagValues })
         }
     
     };
-    
-
+    // console.log('tagValues: ', tagValues)
     if (isPressed == false) {
         return (
             <View>
@@ -50,6 +52,8 @@ function TagButtons({children}) {
             </View>
         )
     }
+
+    
     if (isPressed == true) {
 
         return (

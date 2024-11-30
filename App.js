@@ -5,10 +5,7 @@ import RecipeFull from './components/RecipeFull';
 import Toolbar from './components/Toolbar';
 import Wine from './components/Wine';
 import Health from './components/Health'
-
-import { TagContextProvider } from './hooks/TagContext';
-
-
+import { TagContextProvider } from './hooks/TagContext'
 
 
 
@@ -16,11 +13,11 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 
   return (
-
+    <TagContextProvider>
     <View style={styles.container}>
-
+     
         <Toolbar />
-      <ScrollView>
+        <ScrollView>
         <View style={styles.placement}>
           <RecipeFull />
         </View>
@@ -33,8 +30,8 @@ export default function App() {
       </View>
       </ScrollView>
     </View>
- 
-
+  
+    </TagContextProvider>
   )
 }
 
@@ -47,14 +44,14 @@ const styles = StyleSheet.create({
     color: 'black',
     fontWeight: 'bold',
     height: '100%',
+    paddingTop: 50
 
   },
   placement: {
     fontSize: 10,
-    backgroundColor: 'white',
     flexDirection: 'column',
-    paddingTop: 0,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+
   },
 
 
