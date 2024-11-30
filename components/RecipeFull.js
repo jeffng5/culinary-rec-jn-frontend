@@ -4,7 +4,7 @@ import axios from 'axios'
 import RecipeCard from './RecipeCard'
 import TagButtons from './TagButtons'
 import TagContext from '../hooks/TagContext';
-import { TagContextProvider } from 'react';
+
 
 const American = 'American'
 const Chinese = 'Chinese'
@@ -18,7 +18,7 @@ const seafood = 'seafood'
 const Mexican = 'Mexican'
 const beef = 'beef'
 const fish = 'fish'
-const dim_sum = 'dim-sum'
+const dim_sum = 'dim sum'
 const pork = 'pork'
 const Italian = 'Italian'
 
@@ -27,9 +27,14 @@ const Italian = 'Italian'
 const RecipeFull = () => {
 
     const [recipeResults, setRecipeResults] = useState([]);
+    const [secondaryRecipeResults, setSecondaryRecipeResults] = useState([])
     const { tags, setTags } = useContext(TagContext)
-
-
+    const tagCtx = useContext(TagContext)
+    console.log('tagCtx: ', tagCtx.tags)
+    // const call = tagCtx.tags 
+    // let text = call.toString()
+    // console.log('moment of truth: ', text)
+    
     const getAllRecipes = async function () {
         try {
             const resp = await axios.get('http://localhost:5002')
@@ -41,119 +46,109 @@ const RecipeFull = () => {
         }
     };
 
-   
-        
+ 
+    
 
-    async function getRecipesByTag(tags) {      
-            
-            // setTagvalues(tag)
-            
-            // let tags = tag.toString()
+    async function getRecipesByTag(tag) { 
+
         
-            let URL = {
-                method: 'GET',
-                url: `http://localhost:5002/tags`,
-                params: { ids: tags },
-                headers: { 'content-type': "application/json" }
-            }
-        if (tags)
-        try{
-            await axios.request(URL).then((response) => {
-                const r = response.data;
-                setRecipeResults(r)
-                console.log('HERE is the response object:', r)
-                console.log('testing state', tags)
-            })
-        } catch (err) {
-            console.log(err)
+        let URL = {
+            method: 'GET',
+            url: `http://localhost:5002/tags`,
+            params: { ids: tag },
+            headers: { 'content-type': "application/json" }
         }
+   
+    try{
+        await axios.request(URL).then((response) => {
+            const r = response.data;
+            setRecipeResults(r)
+            console.log('HERE is the response object:', r)
+        })
+    } catch (err) {
+        console.log(err)
+    }
+            
+      
+  
     };
+
+    console.log('Whoops: ',{tags})
+
+    async function getExtraTags() {
+    let URL2 = {
+        method: 'GET',
+        url: `http://localhost/5002/secondary`,
+        params : {ids : {tags}},
+        headers : { 'content-type': "application/json" }
+    } 
+    
+    try{
+        await axios.request(URL2).then((response) => {
+            const r = response.data;
+            setSecondaryRecipeResults(r)
+            console.log('HERE is the response object:', r)
+            
+        })
+    } catch (err) {
+        console.log(err)
+    }};
 
 
     useEffect(() => {
         getAllRecipes();
-        // getRecipesByTag();
+
     }, []);
 
         return (
             <>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 30, gap: 20, paddingTop: 0, marginTop: 10, marginBottom: 20 }}>
             
-                <TagButtons onPress={() => getRecipesByTag('1-2')}>1-2</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('Italian')}> Italian</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('American')}>American</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('Chinese')}  >Chinese</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('Asian')}>Asian</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('Japanese')} >Japanese</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('fusion')} >fusion</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('family-style')} >family-style</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('veggie')}>veggie</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('low-carb')} >low-carb</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('seafood')} >seafood</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('Mexican')}>Mexican</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('beef')} >beef</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('fish')}>fish</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('pork')} >pork</TagButtons>
-                <TagButtons onPress={() => getRecipesByTag('dim sum')} >dim sum</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag('1-2')}}>1-2</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(Italian)}}>Italian</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(American); getExtraTags()}}>American</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(Chinese); getExtraTags()}}  >Chinese</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(Asian); getExtraTags()}}>Asian</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(Japanese); getExtraTags()}} >Japanese</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(fusion); getExtraTags()}} >fusion</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(family_style); getExtraTags()}} >family-style</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(veggie); getExtraTags()}}>veggie</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(low_carb); getExtraTags()}} >low-carb</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(seafood); getExtraTags()}} >seafood</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(Mexican); getExtraTags()}}>Mexican</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(beef); getExtraTags()}} >beef</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(fish); getExtraTags()}}>fish</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(pork); getExtraTags()}} >pork</TagButtons>
+                <TagButtons onPress={() => {getRecipesByTag(dim_sum); getExtraTags()}} >dim sum</TagButtons>
             </View>
 
 
              {recipeResults.map(recipe => (
 
                 <RecipeCard
-                    key={recipe.id}
+                    // id ={recipe.id}
                     name={recipe.name}
                 />
 
             ))
+             }
+            {secondaryRecipeResults.map(r => (
+                <RecipeCard name = {r.name}
+                />
+            ))}
         
-            } 
+            
    
    </>)
 
 
     
 
-    if (tags) {
-        return (
-            <>
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 30, gap: 20, paddingTop: 0, marginTop: 10, marginBottom: 20 }}>
-                
-                    <TagButtons {...1-2} onPress={() => {getRecipesByTag(['1-2'])}}>1-2</TagButtons>
-                    <TagButtons {...Italian} > Italian</TagButtons>
-                    <TagButtons {...American} >American</TagButtons>
-                    <TagButtons {...Chinese}  >Chinese</TagButtons>
-                    <TagButtons {...Asian} >Asian</TagButtons>
-                    <TagButtons {...Japanese} >Japanese</TagButtons>
-                    <TagButtons {...fusion} >fusion</TagButtons>
-                    <TagButtons {...family_style} >family-style</TagButtons>
-                    <TagButtons {...veggie} >veggie</TagButtons>
-                    <TagButtons {...low_carb} >low-carb</TagButtons>
-                    <TagButtons {...seafood} >seafood</TagButtons>
-                    <TagButtons {...Mexican} >Mexican</TagButtons>
-                    <TagButtons {...beef} >beef</TagButtons>
-                    <TagButtons {...fish} >fish</TagButtons>
-                    <TagButtons {...dim_sum} >dim sum</TagButtons>
-                    <TagButtons {...pork} >pork</TagButtons>
-                 
-                </View>
-
-
-                {recipeResults.map(recipe => (
-
-                    <RecipeCard
-                        key={recipe.id}
-                        name={recipe.name}
-                    />
-
-                ))
-
-                }
-            </>)
+ 
     }
 
-    
-    };
+
+    ;
 
 
 

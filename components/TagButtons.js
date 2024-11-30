@@ -12,7 +12,7 @@ function TagButtons({children, onPress}) {
 
     function pressHandler(e) {
         
-        let ans = JSON.stringify(children)
+        let ans = children
         onPress && onPress()
         if (isPressed == false) {
             onPress()

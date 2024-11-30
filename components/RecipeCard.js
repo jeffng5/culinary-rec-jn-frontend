@@ -1,14 +1,14 @@
 import { Text, StyleSheet } from 'react-native'
 
 
-const RecipeCard = ( {key, name} ) => {
+const RecipeCard = ({  name }) => {
    
     return (
         <>
         
        
             <Text style={styles.textStyle}>
-                
+            
                 {name}
             </Text>
         </>
