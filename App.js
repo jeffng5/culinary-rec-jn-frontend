@@ -40,8 +40,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     // marginTop: -100,
-    backgroundColor: 'white',
-    color: 'black',
+    backgroundColor: '#496779',
+    color: 'white',
     fontWeight: 'bold',
     height: '100%',
     paddingTop: 50

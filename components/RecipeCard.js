@@ -20,7 +20,7 @@ const RecipeCard = ({  name }) => {
 const styles = StyleSheet.create({
 
     textStyle: {
-        color: 'black',
+        color: 'white',
         paddingLeft: 50,
         paddingBottom: 10,
         fontSize: 12

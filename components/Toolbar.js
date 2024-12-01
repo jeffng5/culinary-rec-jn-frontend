@@ -7,7 +7,7 @@ export default function Toolbar()  {
         <>
 <HeadLogo/>
 
- <View style = {{borderTopColor: 'black', borderTopWidth: 1.5, marginTop: 10, marginLeft: 20, marginRight: 20}}></View>
+ <View style = {{borderTopColor: 'white', borderTopWidth: 1.5, marginTop: 10, marginLeft: 20, marginRight: 20}}></View>
  {/* <View style={styles.linkView}> */}
   {/* <NavigationContainer>
     <Stack.Navigator>
@@ -29,7 +29,7 @@ export default function Toolbar()  {
   <Text style={styles.linkText}>contact</Text>
 </View> 
 
-<View style = {{borderBottomColor: 'black', borderBottomWidth: 1.5, marginBottom: 30, marginLeft: 20, marginRight: 20, marginTop: 10}}></View>
+<View style = {{borderBottomColor: 'white', borderBottomWidth: 1.5, marginBottom: 30, marginLeft: 20, marginRight: 20, marginTop: 10}}></View>
 
 
 </>
@@ -38,7 +38,7 @@ export default function Toolbar()  {
     const styles = StyleSheet.create({
  
       linkText: {
-        color: 'black', 
+        color: 'white', 
         fontSize: 17,
         marginTop: 10,
         marginRight: 35
