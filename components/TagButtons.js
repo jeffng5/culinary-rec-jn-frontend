@@ -8,6 +8,7 @@ function TagButtons({children, onPress}) {
     const {tags, setTags } = useContext(TagContext)
     const [isPressed, setIsPressed] = useState(false)
     const [tagValues, setTagValues] = useState([])
+    const tagCtx = useContext(TagContext)
 
 
     function pressHandler(e) {
@@ -30,18 +31,22 @@ function TagButtons({children, onPress}) {
             
             setTags(tags.filter(tag => tag !== ans))
             setIsPressed(false)
+
+
+            console.log('Im here!!!!:', tags)
+            
             e.preventDefault();
-            setTagValues(tagValues.filter(value => value !== { children }))
+     
             console.log('button is unselected')
-            console.log({ tagValues })
+           
         }
     
     };
-    // console.log('tagValues: ', tagValues)
+ 
     if (isPressed == false) {
         return (
             <View>
-                <Pressable style={styles.buttons} onPress={pressHandler}>
+                <Pressable style={isPressed ? styles.buttonClick : styles.buttons} onPress={pressHandler}>
                     <View style={styles.buttons}>
                         <Text style={styles.buttonText}>
                             {children}
@@ -89,7 +94,8 @@ const styles = StyleSheet.create({
         borderRadius: 18,
         paddingVertical: 5,
         paddingHorizontal: 10,
-        // opacity: '75',
+        backgroundColor: '#ffa500',
+        opacity: '65%',
     }, 
 
 

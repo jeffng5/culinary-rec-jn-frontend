@@ -28,9 +28,13 @@ const RecipeFull = () => {
 
     const [recipeResults, setRecipeResults] = useState([]);
     const { tags, setTags } = useContext(TagContext)
+    const [buttonPressed, setButtonPressed] = useState(false)
+    const [emptyMessage, setEmptyMessage] = useState([])
+
     const tagCtx = useContext(TagContext)
     console.log('tagCtx: ', tagCtx.tags)
     console.log('tags: ', { tags })
+
 
     const getAllRecipes = async function () {
         try {
@@ -49,27 +53,56 @@ const RecipeFull = () => {
     async function getRecipesByTag(tag) {
 
         const tagz = tagCtx.tags
-
+    
         let URL = {
             method: 'GET',
             url: `http://localhost:5002/tags`,
             params: { ids: [tag, tagz] },
             headers: { 'content-type': "application/json" }
         }
-
         try {
             await axios.request(URL).then((response) => {
                 const r = response.data;
                 setRecipeResults(r)
                 console.log('HERE is the response object:', r)
+                setButtonPressed(true)
             })
         } catch (err) {
             console.log(err)
         }
-    };
+    }
+
+    console.log('CHECK IT OUT', tags)
+    
+
+    async function deleteTagQuery() {
+
+        let URL = {
+            method: 'GET',
+            url: `http://localhost:5002/tags`,
+            params: { ids: [tags] },
+            headers: { 'content-type': "application/json" }
+        }
+        try {
+            await axios.request(URL).then((response) => {
+                const r = response.data;
+                setRecipeResults(r)
+                console.log('HERE is the response object:', r)
+                setButtonPressed(false)
+            })
+        } catch (err) {
+            console.log(err)
+        }
+    
+    }
+    if (buttonPressed == true) {
+        deleteTagQuery();
+    }
+
 
     useEffect(() => {
         getAllRecipes();
+        // deleteTagQuery();
     }, []);
 
     return (
@@ -101,10 +134,10 @@ const RecipeFull = () => {
                     // id ={recipe.id}
                     name={recipe.name}
                 />
-
+              
             ))
             }
-
+           
 
         </>)
 
