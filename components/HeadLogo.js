@@ -7,7 +7,7 @@ return (
 
 <View style={styles.container}>
 <View style = {{flexDirection: 'row'}}> 
-<Image style={styles.imgSize} source={require('../assets/logo.png')} />
+<Image style={styles.imgSize} source={require('../assets/FullLogo.png')} />
 <Text style = {styles.headerText}>Chef Jeff's recipes</Text>
  </View>
 
@@ -27,15 +27,16 @@ const styles = StyleSheet.create({
     },
     imgSize: {
       marginLeft: 20,
-      height: 80,
-      width: 80,
-      borderRadius: 20
+      height: 100,
+      width: 100,
+      borderRadius: 20,
+      paddingRight: -40
     }
     ,
 
   headerText: {
-    marginTop: 28,
-    marginLeft: 10,
+    marginTop: 40,
+    marginLeft: -15,
     color: 'black',
     fontSize: 25,
     textAlign: 'left',
