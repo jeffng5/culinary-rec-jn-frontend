@@ -47,13 +47,10 @@ const RecipeFull = () => {
         }
     };
 
-
-
-
     async function getRecipesByTag(tag) {
 
         const tagz = tagCtx.tags
-    
+
         let URL = {
             method: 'GET',
             url: `http://localhost:5002/tags`,
@@ -73,7 +70,7 @@ const RecipeFull = () => {
     }
 
     console.log('CHECK IT OUT', tags)
-    
+
 
     async function deleteTagQuery() {
 
@@ -93,7 +90,7 @@ const RecipeFull = () => {
         } catch (err) {
             console.log(err)
         }
-    
+
     }
     if (buttonPressed == true) {
         deleteTagQuery();
@@ -102,7 +99,6 @@ const RecipeFull = () => {
 
     useEffect(() => {
         getAllRecipes();
-        // deleteTagQuery();
     }, []);
 
     return (
@@ -127,29 +123,15 @@ const RecipeFull = () => {
                 <TagButtons onPress={() => { getRecipesByTag(dim_sum) }} >dim sum</TagButtons>
             </View>
 
-
             {recipeResults.map(recipe => (
-
                 <RecipeCard
                     // id ={recipe.id}
                     name={recipe.name}
                 />
-              
             ))
             }
-           
 
         </>)
-
-
-
-
-
-}
-
-
-    ;
-
-
+};
 
 export default RecipeFull;
