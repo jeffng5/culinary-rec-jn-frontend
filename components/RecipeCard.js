@@ -20,6 +20,7 @@ const RecipeCard = ({  name }) => {
 const styles = StyleSheet.create({
 
     textStyle: {
+        flexWrap: 'wrap',
         color: 'white',
         paddingLeft: 50,
         paddingBottom: 10,

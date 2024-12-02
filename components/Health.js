@@ -3,7 +3,7 @@ import { View , Text, StyleSheet } from 'react-native'
 const Health = () => {
     return (
         <View>
-         <View style = {{borderTopColor: 'white', borderTopWidth: 1.5, marginTop: 10, marginLeft: 20, marginRight: 20, width: '20%'}}></View>
+         <View style = {{borderTopColor: 'white', borderTopWidth: 1.5, marginTop: 10, width: '20%'}}></View>
             <View> 
                 <Text style = {styles.heading}>HEALTH</Text>
             
@@ -12,7 +12,7 @@ const Health = () => {
             <Text style= {styles.body}>
             Healthy eating should be a priority in our habits, but is not limited to saturated fat, vitamins, and minerals. For people that battle diabetes, or are at risk, a low carb diet is essential. A low carb diet would make the body more sensitive to sugar and help us feel fuller with less food. But please check with your doctor before you get on any diet.  
             </Text>
-            <View style = {{borderBottomColor: 'white', borderBottomWidth: 1.5, marginBottom: 30, marginLeft: 20, marginRight: 20, marginTop: 10, width: '20%'}}></View>
+            <View style = {{borderBottomColor: 'white', borderBottomWidth: 1.5, marginRight: 20, marginTop: 10, width: '20%'}}></View>
         </View>
         
 

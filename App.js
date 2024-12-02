@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     height: '100%',
-    paddingTop: 50
+    padding: 5
 
   },
   placement: {

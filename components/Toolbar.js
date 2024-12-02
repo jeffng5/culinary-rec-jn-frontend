@@ -7,7 +7,7 @@ export default function Toolbar()  {
         <>
 <HeadLogo/>
 
- <View style = {{borderTopColor: 'white', borderTopWidth: 1.5, marginTop: 10, marginLeft: 20, marginRight: 20}}></View>
+ <View style = {{borderTopColor: 'white', borderTopWidth: 1.5, marginTop: 10}}></View>
  {/* <View style={styles.linkView}> */}
   {/* <NavigationContainer>
     <Stack.Navigator>
@@ -15,7 +15,7 @@ export default function Toolbar()  {
       <Stack.Screen name= 'biography' component = {biographyScreen} />
     </Stack.Navigator>
   </NavigationContainer> */}
- <View style = {{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 45, marginRight: 40, justifyContent: 'center'}}>
+ <View style = {{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 45, marginRight: 45, justifyContent: 'center'}}>
   {/* <Text style={styles.linkText}>home</Text> */}
 
   <Text style={styles.linkText}>favorites</Text>
@@ -29,7 +29,7 @@ export default function Toolbar()  {
   <Text style={styles.linkText}>contact</Text>
 </View> 
 
-<View style = {{borderBottomColor: 'white', borderBottomWidth: 1.5, marginBottom: 30, marginLeft: 20, marginRight: 20, marginTop: 10}}></View>
+<View style = {{borderBottomColor: 'white', borderBottomWidth: 1.5, marginBottom: 30, marginTop: 10}}></View>
 
 
 </>
@@ -41,7 +41,8 @@ export default function Toolbar()  {
         color: 'white', 
         fontSize: 17,
         marginTop: 10,
-        marginRight: 35
+        marginRight: 30,
+
       },
 
     }
