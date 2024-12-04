@@ -1,50 +1,38 @@
-import { ImageComponent, StyleSheet, Text, View, Image, Button, ScrollView, FlatList } from 'react-native';
+import { ImageComponent, StyleSheet, Text, View, Image, Button, ScrollView, FlatList, Pressable } from 'react-native';
 import HeadLogo from './HeadLogo'
+import { useNavigation, useRoute, createNativeStackNavigator, useLinkProps } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
+import BiographyScreen from '../screens/BiographyScreen';
+import FavoritesScreen from '../screens/FavoritesScreen';
+import ContactScreen from '../screens/ContactScreen';
+import Links from './Links'
 
-export default function Toolbar()  {
+
+
+export default function Toolbar() {
+
+    const navigation = useNavigation()
 
     return (
         <>
-<HeadLogo/>
+            <HeadLogo />
 
- <View style = {{borderTopColor: 'white', borderTopWidth: 1.5, marginTop: 10}}></View>
- {/* <View style={styles.linkView}> */}
-  {/* <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen name='home' component = {App} />
-      <Stack.Screen name= 'biography' component = {biographyScreen} />
-    </Stack.Navigator>
-  </NavigationContainer> */}
- <View style = {{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 45, marginRight: 45, justifyContent: 'center'}}>
-  {/* <Text style={styles.linkText}>home</Text> */}
+            <View style={{ borderTopColor: 'white', borderTopWidth: 1.5, marginTop: 10 }}>
+            </View>
 
-  <Text style={styles.linkText}>favorites</Text>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 45, marginRight: 45, justifyContent: 'center' }}>
 
-  <Text style={styles.linkText} >biography</Text>
-  
-  {/* <Text style={styles.linkText}>wine</Text>
+                <Links title='favorites' onPress={() => navigation.navigate(FavoritesScreen)} />
+                <Links title='biography' onPress={() =>
+                    navigation.navigate(BiographyScreen)} />
+                <Links title='contact' onPress={() => navigation.navigate(ContactScreen)} />
 
-  <Text style= {styles.linkText}>health</Text> */}
-  
-  <Text style={styles.linkText}>contact</Text>
-</View> 
+            </View>
 
-<View style = {{borderBottomColor: 'white', borderBottomWidth: 1.5, marginBottom: 30, marginTop: 10}}></View>
-
-
-</>
-    )};
-
-    const styles = StyleSheet.create({
- 
-      linkText: {
-        color: 'white', 
-        fontSize: 17,
-        marginTop: 10,
-        marginRight: 30,
-
-      },
-
-    }
+            <View style={{ borderBottomColor: 'white', borderBottomWidth: 1.5, marginBottom: 30, marginTop: 10 }}></View>
+        </>
     )
+};
+
+
 
