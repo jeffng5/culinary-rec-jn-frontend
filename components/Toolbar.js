@@ -20,12 +20,11 @@ export default function Toolbar() {
             <View style={{ borderTopColor: 'white', borderTopWidth: 1.5, marginTop: 10 }}>
             </View>
 
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 45, marginRight: 45, justifyContent: 'center' }}>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 40, marginRight: 40, justifyContent: 'center' }}>
 
-                <Links title='favorites' onPress={() => navigation.navigate(FavoritesScreen)} />
-                <Links title='biography' onPress={() =>
-                    navigation.navigate(BiographyScreen)} />
-                <Links title='contact' onPress={() => navigation.navigate(ContactScreen)} />
+                <Links title='favorites' onPress={() => navigation.navigate(FavoritesScreen)} name = 'Favorites'/>
+                <Links title='biography' onPress={() => navigation.navigate(BiographyScreen)} name = 'Biography' />
+                <Links title='contact' onPress={() => navigation.navigate(ContactScreen)} name = 'Contact' />
 
             </View>
 

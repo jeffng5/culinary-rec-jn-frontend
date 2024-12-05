@@ -102,7 +102,8 @@ const RecipeFull = () => {
     }, []);
 
     return (
-        <>
+      <>
+
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 30, gap: 20, paddingTop: 0, marginTop: 10, marginBottom: 20 }}>
 
                 <TagButtons onPress={() => { getRecipesByTag('1-2') }}>1-2</TagButtons>
@@ -131,7 +132,8 @@ const RecipeFull = () => {
             ))
             }
 
-        </>)
+</>
+        )
 };
 
 export default RecipeFull;

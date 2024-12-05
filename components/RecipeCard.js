@@ -1,14 +1,11 @@
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, ScrollView } from 'react-native'
 
 
 const RecipeCard = ({  name }) => {
    
     return (
         <>
-        
-       
-            <Text style={styles.textStyle}>
-            
+            <Text style={styles.textStyle}>  
                 {name}
             </Text>
         </>

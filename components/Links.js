@@ -1,14 +1,14 @@
 import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
+import * as React from 'react'
 import { useNavigation, useRoute, createNativeStackNavigator, useLinkProps } from '@react-navigation/native'
 
 
-function Links({ title, onPress }) {
-
-    const linkProps = useLinkProps({ to: { name : `/${name}` }})
-    console.log(linkProps)
+function Links({ title, name }) {
+    const navigation = useNavigation()
+  
     return (
         <>
-            <Pressable {...linkProps} onPress={onPress}>
+            <Pressable onPress={() => navigation.navigate(`${name}`)}>
                 <Text style={styles.linkText}>{title}</Text>
             </Pressable>
         </>
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 17,
         marginTop: 10,
-        marginRight: 30,
+        marginRight: 20,
 
     },
 
