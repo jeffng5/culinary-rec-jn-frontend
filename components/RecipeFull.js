@@ -104,7 +104,7 @@ const RecipeFull = () => {
     }, []);
 
     return (
-      <>
+        <>
 
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 30, gap: 20, paddingTop: 0, marginTop: 10, marginBottom: 20 }}>
 
@@ -126,18 +126,18 @@ const RecipeFull = () => {
                 <TagButtons onPress={() => { getRecipesByTag(dim_sum) }} >dim sum</TagButtons>
             </View>
 
-            <View style = {{flexDirection:'row', flexWrap:'wrap', alignItems: 'flex-start' }}>
-            {recipeResults.map(recipe => (
-                <View style= {{width: '50%'}}>
-         
-                <RecipeCard
-                    key ={recipe.id}
-                    name={recipe.name} /></View>
-            ))
-            }
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start' }}>
+                {recipeResults.map(recipe => (
+                    <View style={{ width: '50%' }}>
+
+                        <RecipeCard
+                            key={recipe.id}
+                            name={recipe.name} /></View>
+                ))
+                }
             </View>
-</>
-        )
+        </>
+    )
 };
 
 const styles = StyleSheet.create({

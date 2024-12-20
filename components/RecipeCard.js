@@ -1,41 +1,42 @@
 import { Text, StyleSheet, ScrollView, Image, View, Pressable } from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 
 
 const RecipeCard = ({ name, image, key }) => {
 
-    // const [individualRecipe, setIndividualRecipe] = useState([]);
-    // const [isPressed, setIsPressed] = useState(false)
+    const [individualRecipe, setIndividualRecipe] = useState([]);
+    const [isPressed, setIsPressed] = useState(false)
 
-    // async function pressHandler(e) {
+    console.log(name)
 
-    //     onPress && onPress()
+    async function pressHandler() {
 
-    //     if (isPressed == false) {
-    //         onPress()
-    //         setIsPressed(true)
-    //         e.preventDefault()
-    //     let URL = {
-    //         method: 'GET',
-    //         url: 'http://localhost:5002/individual',
-    //         params: { ids: [name] },
-    //         headers: { 'content-type': 'application/json' }
-    //     }
-    //     try {
-    //         await axios.get(URL).then((response) => {
-    //             const r = response.data;
-    //             setIndividualRecipe(r)
-    //             setIsPressed(false)
-    //             console.log('response obj = ', r)
-    //         })
+        if (isPressed == false) {
+    
+            setIsPressed(true)
+
+        let URL = {
+            method: 'GET',
+            url: 'http://localhost:5002/individual-recipes',
+            params: { ids: name },
+            headers: { 'content-type': "application/json" }
+        }
+        try {
+            await axios.get(URL).then((response) => {
+                const r = response.data;
+                setIndividualRecipe(r)
+                setIsPressed(false)
+                console.log('response obj = ', r)
+            })
             
-    //     } catch (err) {
-    //         console.error(err)
-    //     }
+        } catch (err) {
+            console.error(err)
+        }
 
-    // }
+    }
+};
 
 
     return (
@@ -43,9 +44,9 @@ const RecipeCard = ({ name, image, key }) => {
             {key}
             <Image style={styles.imgStyle} source={require(`../assets/food/bistecCebolla.png`)} />
     
-            <Pressable style={styles.textStyle}>{name}</Pressable>
+            <Pressable onPress={pressHandler} style={styles.textStyle}>{name}</Pressable>
         
-
+            {individualRecipe}
         </>
     )
 }

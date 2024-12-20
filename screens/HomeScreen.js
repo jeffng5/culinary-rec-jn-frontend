@@ -9,16 +9,13 @@ import { TagContextProvider } from '../hooks/TagContext';
 import Toolbar from '../components/Toolbar';
 import { ScrollView } from 'react-native-web';
 
-// import BiographyScreen from './screens/BiographyScreen';
-// import FavoritesScreen from './screens/FavoritesScreen';
-// import ContactScreen from './screens/ContactScreen';
 
 export default function HomeScreen() {
 
 
     return (
         <TagContextProvider>
-            <ScrollView>
+            <ScrollView style={styles.scrollview}>
                 <SafeAreaView style={styles.container}>
 
                     <Toolbar />
@@ -39,16 +36,18 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+
     container: {
+        display: 'flex',
         flex: 1,
         flexDirection: 'column',
         backgroundColor: '#496779',
         color: 'white',
         fontWeight: 'bold',
         height: '100%',
-        padding: 5
-
+        padding: 5,
     },
+
     placement: {
         fontSize: 10,
         flexDirection: 'column',
@@ -56,6 +55,10 @@ const styles = StyleSheet.create({
     },
     comp: {
         flexDirection: 'row'
+    },
+
+    scrollview: {
+        overflow: 'hidden'
     }
 
 
