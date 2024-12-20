@@ -27,6 +27,7 @@ const Italian = 'Italian'
 const RecipeFull = () => {
 
     const [recipeResults, setRecipeResults] = useState([]);
+
     const { tags, setTags } = useContext(TagContext)
     const [buttonPressed, setButtonPressed] = useState(false)
     const [emptyMessage, setEmptyMessage] = useState([])
@@ -70,6 +71,7 @@ const RecipeFull = () => {
     }
 
     console.log('CHECK IT OUT', tags)
+
 
 
     async function deleteTagQuery() {
@@ -124,16 +126,36 @@ const RecipeFull = () => {
                 <TagButtons onPress={() => { getRecipesByTag(dim_sum) }} >dim sum</TagButtons>
             </View>
 
+            <View style = {{flexDirection:'row', flexWrap:'wrap', alignItems: 'flex-start' }}>
             {recipeResults.map(recipe => (
+                <View style= {{width: '50%'}}>
+         
                 <RecipeCard
-                    // id ={recipe.id}
-                    name={recipe.name}
-                />
+                    key ={recipe.id}
+                    name={recipe.name} /></View>
             ))
             }
-
+            </View>
 </>
         )
 };
+
+const styles = StyleSheet.create({
+
+    textStyle: {
+        flexWrap: 'wrap',
+        color: 'white',
+        paddingLeft: 50,
+        paddingBottom: 10,
+        fontSize: 12
+    },
+
+    imgStyle: {
+        marginLeft: 50,
+        height: 100,
+        width: 100,
+        borderRadius: 14,
+    }
+});
 
 export default RecipeFull;

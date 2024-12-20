@@ -18,21 +18,21 @@ export default function HomeScreen() {
 
     return (
         <TagContextProvider>
-               <ScrollView>
-            <SafeAreaView style={styles.container}>
-        
-                <Toolbar />
-            
-                   <View style={styles.placement}>
+            <ScrollView>
+                <SafeAreaView style={styles.container}>
+
+                    <Toolbar />
+
+                    <View style={styles.placement}>
                         <RecipeFull />
-             </View>
-             
-                    <View style={styles.comp}> 
+                    </View>
+
+                    <View style={styles.comp}>
                         <Wine />
                         <Health />
-                 </View> 
-                
-            </SafeAreaView>
+                    </View>
+
+                </SafeAreaView>
             </ScrollView>
         </TagContextProvider>
     )
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     comp: {
-        flexDirection: 'row' 
+        flexDirection: 'row'
     }
 
 

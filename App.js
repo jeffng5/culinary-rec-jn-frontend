@@ -8,6 +8,7 @@ import ContactScreen from './screens/ContactScreen';
 import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 
 
+
 const Stack = createNativeStackNavigator()
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
           <Stack.Screen name="Favorites" component={FavoritesScreen} />
           <Stack.Screen name='Biography' component={BiographyScreen} />
           <Stack.Screen name='Contact' component={ContactScreen} />
+
 
         </Stack.Navigator>
       {/* </View> */}
