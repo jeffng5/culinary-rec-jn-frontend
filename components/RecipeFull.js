@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { ImageComponent, StyleSheet, Text, View, Image, Button, ScrollView, FlatList } from 'react-native';
+import { ImageComponent, StyleSheet, Text, View, Image, Button, ScrollView, FlatList, Pressable } from 'react-native';
 import axios from 'axios'
 import RecipeCard from './RecipeCard'
 import TagButtons from './TagButtons'
@@ -27,7 +27,6 @@ const Italian = 'Italian'
 const RecipeFull = () => {
 
     const [recipeResults, setRecipeResults] = useState([]);
-
     const { tags, setTags } = useContext(TagContext)
     const [buttonPressed, setButtonPressed] = useState(false)
     const [emptyMessage, setEmptyMessage] = useState([])
@@ -129,10 +128,10 @@ const RecipeFull = () => {
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start' }}>
                 {recipeResults.map(recipe => (
                     <View style={{ width: '50%' }}>
-
                         <RecipeCard
-                            key={recipe.id}
-                            name={recipe.name} /></View>
+                            id={recipe.recipe_id}
+                            name={recipe.name}
+                            image_url={recipe.image_url} /></View>
                 ))
                 }
             </View>

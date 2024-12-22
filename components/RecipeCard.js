@@ -3,13 +3,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 
 
-
-const RecipeCard = ({ name, image, key }) => {
+const RecipeCard = ({ name, image_url, id }) => {
 
     const [individualRecipe, setIndividualRecipe] = useState([]);
     const [isPressed, setIsPressed] = useState(false)
 
-    console.log(name)
+    console.log(image_url)
 
     async function pressHandler() {
 
@@ -24,7 +23,7 @@ const RecipeCard = ({ name, image, key }) => {
             headers: { 'content-type': "application/json" }
         }
         try {
-            await axios.get(URL).then((response) => {
+            await axios(URL).then((response) => {
                 const r = response.data;
                 setIndividualRecipe(r)
                 setIsPressed(false)
@@ -37,16 +36,18 @@ const RecipeCard = ({ name, image, key }) => {
 
     }
 };
-
+{id}
 
     return (
         <>
-            {key}
-            <Image style={styles.imgStyle} source={require(`../assets/food/bistecCebolla.png`)} />
+            
+            
+            <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${image_url}`} />
     
             <Pressable onPress={pressHandler} style={styles.textStyle}>{name}</Pressable>
         
-            {individualRecipe}
+            {individualRecipe.map(r => (<View><Text>{r.name}
+            {r.step_no}{r.procedure}</Text></View>))}
         </>
     )
 }
