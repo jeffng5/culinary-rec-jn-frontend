@@ -1,13 +1,12 @@
-import { ImageComponent, StyleSheet, Text, View, Image, Button, ScrollView, FlatList, Pressable } from 'react-native';
+import { View } from 'react-native';
 import HeadLogo from './HeadLogo'
-import { useNavigation, useRoute, createNativeStackNavigator, useLinkProps } from '@react-navigation/native'
-import { NavigationContainer } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 import BiographyScreen from '../screens/BiographyScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import ContactScreen from '../screens/ContactScreen';
 import Links from './Links'
 
-
+// Toolbar component that serves the 3 links in HomeScreen to bio, favorites, and contact
 
 export default function Toolbar() {
 

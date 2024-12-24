@@ -22,7 +22,7 @@ const dim_sum = 'dim sum'
 const pork = 'pork'
 const Italian = 'Italian'
 
-
+////// In Home Screen component and also where App starts /////
 
 const RecipeFull = () => {
 
@@ -35,7 +35,7 @@ const RecipeFull = () => {
     console.log('tagCtx: ', tagCtx.tags)
     console.log('tags: ', { tags })
 
-
+/// fetch all recipes
     const getAllRecipes = async function () {
         try {
             const resp = await axios.get('http://localhost:5002')
@@ -47,6 +47,7 @@ const RecipeFull = () => {
         }
     };
 
+    // fetch recipes by tag selected
     async function getRecipesByTag(tag) {
 
         const tagz = tagCtx.tags
@@ -72,7 +73,7 @@ const RecipeFull = () => {
     console.log('CHECK IT OUT', tags)
 
 
-
+    // unselects a tag and fetches accordingly
     async function deleteTagQuery() {
 
         let URL = {

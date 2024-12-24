@@ -2,13 +2,16 @@ import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-nativ
 import * as React from 'react'
 import { useNavigation, useRoute, createNativeStackNavigator, useLinkProps } from '@react-navigation/native'
 
+// Generic Link component to receive navigation props and appropriate screen 
 
-function Links({ title, name }) {
+function Links({ title, name, screen }) {
     const navigation = useNavigation()
-  
+
     return (
         <>
-            <Pressable onPress={() => navigation.navigate(`Details`, name={name})}>
+            <Pressable onPress={() => navigation.navigate
+            ///// receives name prop to be used in screen
+            (`${screen}`, name = { name })}>
                 <Text style={styles.linkText}>{title}</Text>
             </Pressable>
         </>

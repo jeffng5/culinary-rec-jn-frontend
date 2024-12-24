@@ -5,12 +5,11 @@ import { useNavigation } from '@react-navigation/native'
 import Links from './Links'
 
 
+// gets individual recipe 
 
 const RecipeCard = ({ name, image_url, id}) => {
 
     const navigation = useNavigation();
-
-    console.log(name)
 
     const [individualRecipe, setIndividualRecipe] = useState([]);
     const [isPressed, setIsPressed] = useState(false)
@@ -48,13 +47,11 @@ const RecipeCard = ({ name, image_url, id}) => {
                         
             
             <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${image_url}`} />
-    
-            {/* <Pressable onPress={pressHandler} style={styles.textStyle}>{name}</Pressable> */}
         
-            <Links title = {name} name = {name}/>
+            <Links title = {name} name = {name} screen='Details'/>
 
-            {individualRecipe.map(r => (<View><Text>{r.name}
-            {r.step_no}{r.procedure}</Text></View>))}
+            {/* {individualRecipe.map(r => (<View><Text>{r.name}
+            {r.step_no}{r.procedure}</Text></View>))} */}
         </View>
     )
 }

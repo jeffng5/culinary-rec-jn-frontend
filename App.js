@@ -10,7 +10,7 @@ import DetailsScreen from './screens/DetailsScreen';
 import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 
 
-
+////////////// NAVIGATION SETUP /////////////// 
 const Stack = createNativeStackNavigator()
 
 export default function App() {
@@ -26,25 +26,15 @@ export default function App() {
 
   return (
     <TagContextProvider>
-  
-    <NavigationContainer theme ={DarkTheme}>
-
-      {/* <View style={{ flexDirection: 'column' }}> */}
+      <NavigationContainer theme={DarkTheme}>
         <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name = 'Home' component= {HomeScreen} />
+          <Stack.Screen name='Home' component={HomeScreen} />
           <Stack.Screen name="Favorites" component={FavoritesScreen} />
           <Stack.Screen name='Biography' component={BiographyScreen} />
           <Stack.Screen name='Contact' component={ContactScreen} />
-          <Stack.Screen name = 'Details' component = {DetailsScreen} />
-
-
+          <Stack.Screen name='Details' component={DetailsScreen} />
         </Stack.Navigator>
-      {/* </View> */}
-
-      {/* <HomeScreen /> */}
-
-    </NavigationContainer>
-   
+      </NavigationContainer>
     </TagContextProvider>
   )
 }
