@@ -3,14 +3,17 @@ import { createContext, useState } from 'react';
 const TagContext = createContext({ 
     
     tags : [], setTags: () => ([]), 
-    // tagFunction : addTagHandler, removeTagFunction : removeTagHandler 
+    name : [],
+    image_url: [],
+    id :[]
 
 });
 
 export function TagContextProvider(props) {
 
     const [tags, setTags] = useState([])
-
+    const [name, setName] = useState([])
+    const [image_url, setImage_Url] = useState([])
 
     
     
@@ -28,6 +31,7 @@ export function TagContextProvider(props) {
     const context = {tags, setTags,  
     // tagFunction : addTagHandler,
     // removeTagFunction : removeTagHandler
+    name, setName, image_url, setImage_Url
 
 };
     console.log({tags})

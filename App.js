@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import BiographyScreen from './screens/BiographyScreen';
 import FavoritesScreen from './screens/FavoritesScreen';
 import ContactScreen from './screens/ContactScreen';
+import DetailsScreen from './screens/DetailsScreen';
 import { DefaultTheme, DarkTheme } from '@react-navigation/native';
 
 
@@ -32,6 +33,7 @@ export default function App() {
           <Stack.Screen name="Favorites" component={FavoritesScreen} />
           <Stack.Screen name='Biography' component={BiographyScreen} />
           <Stack.Screen name='Contact' component={ContactScreen} />
+          <Stack.Screen name = 'Details' component = {DetailsScreen} />
 
 
         </Stack.Navigator>
