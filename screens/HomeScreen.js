@@ -31,7 +31,7 @@ export default function HomeScreen() {
 
                 </SafeAreaView>
             </ScrollView>
-        </TagContextProvider>
+            </TagContextProvider> 
     )
 }
 

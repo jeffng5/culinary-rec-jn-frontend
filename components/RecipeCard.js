@@ -1,8 +1,6 @@
 import { Text, StyleSheet, ScrollView, Image, Button, View, Pressable } from 'react-native';
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios'
-import TagContext from '../hooks/TagContext';
-import DetailsScreen from '../screens/DetailsScreen';
 import { useNavigation } from '@react-navigation/native'
 import Links from './Links'
 
@@ -53,7 +51,7 @@ const RecipeCard = ({ name, image_url, id}) => {
     
             {/* <Pressable onPress={pressHandler} style={styles.textStyle}>{name}</Pressable> */}
         
-            <Links title = {name} onPress = {() => navigation.navigate(DetailsScreen)} name = 'Details'/>
+            <Links title = {name} name = {name}/>
 
             {individualRecipe.map(r => (<View><Text>{r.name}
             {r.step_no}{r.procedure}</Text></View>))}

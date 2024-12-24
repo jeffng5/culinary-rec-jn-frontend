@@ -8,7 +8,7 @@ function Links({ title, name }) {
   
     return (
         <>
-            <Pressable onPress={() => navigation.navigate(`${name}`)}>
+            <Pressable onPress={() => navigation.navigate(`Details`, name={name})}>
                 <Text style={styles.linkText}>{title}</Text>
             </Pressable>
         </>

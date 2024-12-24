@@ -3,13 +3,13 @@ import { createContext, useState } from 'react';
 const TagContext = createContext({ 
     
     tags : [], setTags: () => ([]), 
-    name : [],
+    name : [], setName: () => ([]),
     image_url: [],
     id :[]
 
 });
 
-export function TagContextProvider(props) {
+export function TagContextProvider({children}) {
 
     const [tags, setTags] = useState([])
     const [name, setName] = useState([])
@@ -17,27 +17,28 @@ export function TagContextProvider(props) {
 
     
     
-    function addTagHandler(props) {
-        setTags((prevUserTag)=> [...prevUserTag, props]);
+    function addNameHandler(props) {
+        setName((prevUserName)=> [...prevUserName, props]);
         };
     
     
-    function removeTagHandler(props) {
-        setTags(prevUserTag => {
-            return prevUserTag.filter((mealId) => mealId !== props);
+    function removeNameHandler(props) {
+        setTags(prevUserName => {
+            return prevUserName.filter((names) => names !== props);
         })
     }
     
     const context = {tags, setTags,  
     // tagFunction : addTagHandler,
     // removeTagFunction : removeTagHandler
-    name, setName, image_url, setImage_Url
-
+    name, setName, 
+    addNameHandler: addNameHandler, 
+    removeNameHandler: removeNameHandler
 };
-    console.log({tags})
-    console.log({addTagHandler})
+ 
+    console.log({addNameHandler})
     return <TagContext.Provider value= {context}>
-        {props.children}
+        {children}
     </TagContext.Provider>
     }
 

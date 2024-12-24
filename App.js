@@ -1,6 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react'
 import HomeScreen from './screens/HomeScreen';
+import { TagContextProvider } from './hooks/TagContext';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import BiographyScreen from './screens/BiographyScreen';
 import FavoritesScreen from './screens/FavoritesScreen';
@@ -24,7 +25,8 @@ export default function App() {
   }
 
   return (
-
+    <TagContextProvider>
+  
     <NavigationContainer theme ={DarkTheme}>
 
       {/* <View style={{ flexDirection: 'column' }}> */}
@@ -42,6 +44,8 @@ export default function App() {
       {/* <HomeScreen /> */}
 
     </NavigationContainer>
+   
+    </TagContextProvider>
   )
 }
 ;

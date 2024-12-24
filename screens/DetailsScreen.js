@@ -1,25 +1,28 @@
 import { Text, StyleSheet, Image, View, SafeAreaView } from 'react-native';
-import { useState, useEffect, useContext } from 'react';
-import TagContext from '../hooks/TagContext';
+import { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
 import axios from 'axios'
-
-
-
+import { useRoute } from '@react-navigation/native'; 
 
 function DetailsScreen() {
 
+    const route = useRoute()
+    const { name } = route.params
+    console.log(name);
+    console.log('THIS IS IT', name)
+
+
+
     const [individualRecipe, setIndividualRecipe] = useState([]);
     const [imgURL, setImgURL] = useState('')
-    const [nameRec, setNameRec ] = useState('')
-
+    const [nameRec, setNameRec] = useState('')
 
     async function getIndividualRecipes () {
 
         let URL = {
             method: 'GET',
             url: 'http://localhost:5002/individual-recipes',
-            params: { ids: 'Lemon and herb roasted chicken' },
+            params: { ids: name },
             headers: { 'content-type': "application/json" }
         }
         try {
@@ -72,16 +75,18 @@ const styles = StyleSheet.create({
         fontSize: 25,
         color: 'white',
         padding: 15,
+        marginLeft: 35
     },
     textStyle: {
         color: 'white',
         marginLeft: 50,
         paddingBottom: 10,
-        marginTop: 11
+        marginTop: 11,
+        marginRight: 50
     },
     imgStyle: {
-        height: 200,
-        width: 200,
+        height: 300,
+        width: 300,
         borderRadius: 14,
         marginLeft: 50,
         padding: 15,
