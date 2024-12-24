@@ -15,13 +15,6 @@ export function TagContextProvider({children}) {
         setName((prevUserName)=> [...prevUserName, props]);
         };
     
-    
-    function removeNameHandler(props) {
-        setTags(prevUserName => {
-            return prevUserName.filter((names) => names !== props);
-        })
-    }
-    
     const context = {tags, setTags,  
     // tagFunction : addTagHandler,
     // removeTagFunction : removeTagHandler
