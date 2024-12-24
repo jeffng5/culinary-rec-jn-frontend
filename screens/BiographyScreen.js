@@ -1,5 +1,4 @@
 import { Text, StyleSheet, Image, SafeAreaView } from 'react-native'
-// import * as React from 'react'
 import { ScrollView } from 'react-native'
 
 

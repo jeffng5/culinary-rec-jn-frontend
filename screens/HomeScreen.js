@@ -1,7 +1,5 @@
-import { ImageComponent, StyleSheet, Text, Scrollview, SafeAreaView, Image, Button, View } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView, View } from 'react-native';
 import * as React from 'react'
-import { NavigationContainer, useNavigation } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import RecipeFull from '../components/RecipeFull';
 import Wine from '../components/Wine';
 import Health from '../components/Health'

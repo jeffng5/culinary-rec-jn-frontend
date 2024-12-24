@@ -4,6 +4,9 @@ import { ScrollView } from 'react-native';
 import axios from 'axios'
 import { useRoute } from '@react-navigation/native'; 
 
+
+// Details contain the recipe procedure, image and name 
+// receives route params from RecipeCard.js from the <Link> component
 function DetailsScreen() {
 
     const route = useRoute()
@@ -17,7 +20,8 @@ function DetailsScreen() {
     const [imgURL, setImgURL] = useState('')
     const [nameRec, setNameRec] = useState('')
 
-    async function getIndividualRecipes () {
+    //API Call to backend to get the indiv. recipes' image_url, procedure, and name
+    async function getIndividualRecipes() {
 
         let URL = {
             method: 'GET',

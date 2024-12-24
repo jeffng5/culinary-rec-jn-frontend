@@ -1,5 +1,5 @@
-import { Text, StyleSheet, ScrollView, Image, Button, View, Pressable } from 'react-native';
-import { useState, useEffect, useContext } from 'react';
+import { StyleSheet, Image, View} from 'react-native';
+import { useState } from 'react';
 import axios from 'axios'
 import { useNavigation } from '@react-navigation/native'
 import Links from './Links'

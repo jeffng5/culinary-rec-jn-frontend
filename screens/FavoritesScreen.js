@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { ImageComponent, StyleSheet, Text, View, Image, SafeAreaView, ScrollView, FlatList } from 'react-native';
+import React, { useState, useEffect } from 'react'
+import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import axios from 'axios'
 import RecipeCard from '../components/RecipeCard'
 

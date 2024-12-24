@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { ImageComponent, StyleSheet, Text, View, Image, Button, ScrollView, FlatList, Pressable } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import axios from 'axios'
 import RecipeCard from './RecipeCard'
 import TagButtons from './TagButtons'

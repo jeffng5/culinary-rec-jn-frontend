@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, Pressable } from 'react-native'
 import * as React from 'react'
-import { useNavigation, useRoute, createNativeStackNavigator, useLinkProps } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 
 // Generic Link component to receive navigation props and appropriate screen 
 
