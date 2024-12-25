@@ -5,7 +5,6 @@ import Wine from '../components/Wine';
 import Health from '../components/Health'
 import { TagContextProvider } from '../hooks/TagContext';
 import Toolbar from '../components/Toolbar';
-import { ScrollView } from 'react-native-web';
 
 
 export default function HomeScreen() {

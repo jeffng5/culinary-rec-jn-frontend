@@ -21,9 +21,9 @@ export default function Toolbar() {
 
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 40, marginRight: 40, justifyContent: 'center' }}>
 
-                <Links title='favorites' onPress={() => navigation.navigate(FavoritesScreen)} name = 'Favorites'/>
-                <Links title='biography' onPress={() => navigation.navigate(BiographyScreen)} name = 'Biography' />
-                <Links title='contact' onPress={() => navigation.navigate(ContactScreen)} name = 'Contact' />
+                <Links title='favorites' screen='Favorites' name = 'Favorites'/>
+                <Links title='biography' screen='Biography' name = 'Biography' />
+                <Links title='contact' screen = 'Contact' name = 'Contact' />
 
             </View>
 
