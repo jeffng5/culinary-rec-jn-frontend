@@ -10,29 +10,32 @@ import { useRoute } from '@react-navigation/native';
 function DetailsScreen() {
 
     const route = useRoute()
-    const { name } = route.params
+    const { name }  = route.params
     console.log(name);
     console.log('THIS IS IT', name)
 
 
 
     const [individualRecipe, setIndividualRecipe] = useState([]);
-    const [imgURL, setImgURL] = useState('')
-    const [nameRec, setNameRec] = useState('')
+    const [imgURL, setImgURL] = useState([]);
+    const [nameRec, setNameRec] = useState([]);
 
     //API Call to backend to get the indiv. recipes' image_url, procedure, and name
     async function getIndividualRecipes() {
-
+        console.log('I AM HERE NAME')
         let URL = {
             method: 'GET',
             url: 'http://localhost:5002/individual-recipes',
             params: { ids: name },
             headers: { 'content-type': "application/json" }
         }
+
         try {
-            await axios(URL).then((response) => {
+            await axios.request(URL).then((response) => {
                 console.log(response)
                 const r = response.data;
+                console.log("photo", r[0].image_url)
+                console.log(r[0].name)
                 setIndividualRecipe(r)
                 setImgURL(r[0].image_url)
                 setNameRec(r[0].name)
@@ -49,13 +52,13 @@ function DetailsScreen() {
     }, []);
 
    console.log(individualRecipe)
-   const image = imgURL
+
     return (
         <SafeAreaView style = {styles.container}>
             <ScrollView>
          
             <Text style= {styles.title}>{nameRec}</Text>
-            <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${image}`} />
+            <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${imgURL}`} />
             
             {individualRecipe.map(r => (<View>
             <Text style = {styles.textStyle}>

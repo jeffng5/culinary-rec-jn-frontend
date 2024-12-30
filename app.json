@@ -23,6 +23,11 @@
     },
     "web": {
       "favicon": "./assets/white_logo_transparent.png"
+    },
+    "expo": {
+      "web": {
+        "bundler": "metro"
+      }
     }
   }
 }

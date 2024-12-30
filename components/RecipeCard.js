@@ -11,14 +11,12 @@ const RecipeCard = ({ name, image_url, id}) => {
 
     const navigation = useNavigation();
 
+    
     const [individualRecipe, setIndividualRecipe] = useState([]);
     const [isPressed, setIsPressed] = useState(false)
 
-    async function pressHandler() {
-
-        if (isPressed == false) {
-    
-            setIsPressed(true)
+ 
+    async() => {
 
         let URL = {
             method: 'GET',
@@ -27,7 +25,7 @@ const RecipeCard = ({ name, image_url, id}) => {
             headers: { 'content-type': "application/json" }
         }
         try {
-            await axios(URL).then((response) => {
+            await axios.request(URL).then((response) => {
                 const r = response.data;
                 setIndividualRecipe(r)
                 setIsPressed(false)
@@ -37,10 +35,10 @@ const RecipeCard = ({ name, image_url, id}) => {
         } catch (err) {
             console.error(err)
         }
+  
+    };
 
-    }
-};
-{id}
+// {id}
 
     return (
         <View style= {styles.textStyle}>
@@ -54,7 +52,7 @@ const RecipeCard = ({ name, image_url, id}) => {
             {r.step_no}{r.procedure}</Text></View>))} */}
         </View>
     )
-}
+        }
 ;
 
 

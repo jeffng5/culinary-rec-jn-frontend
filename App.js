@@ -1,5 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
-import * as React from 'react'
+import * as React from 'react';
 import HomeScreen from './screens/HomeScreen';
 import { TagContextProvider } from './hooks/TagContext';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'

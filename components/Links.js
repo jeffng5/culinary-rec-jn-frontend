@@ -7,11 +7,12 @@ import { useNavigation } from '@react-navigation/native'
 function Links({ title, name, screen }) {
     const navigation = useNavigation()
 
+
     return (
         <>
             <Pressable onPress={() => navigation.navigate
             ///// receives name prop to be used in screen
-            (`${screen}`, name = { name })}>
+            (`${screen}`, {name : name})}>
                 <Text style={styles.linkText}>{title}</Text>
             </Pressable>
         </>
