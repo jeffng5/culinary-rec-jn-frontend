@@ -10,7 +10,7 @@ function FavoritesScreen() {
 
     const getAllRecipes = async function () {
         try {
-            const resp = await axios.get('http://localhost:5002')
+            const resp = await axios.get('http://localhost:5002/favorites')
 
         //work on backend route to fetch favorite recipes
             console.log(resp.data)
@@ -26,9 +26,10 @@ function FavoritesScreen() {
     }, []);
 
     return (
+        <ScrollView >
         <SafeAreaView >
             <View style = {{backgroundColor: '#496779'}}>
-            <ScrollView >
+            
                 <Text style = {{fontSize: 17, color: 'white', margin: 20}}>
                     Here are my favorites:
                 </Text>
@@ -36,12 +37,14 @@ function FavoritesScreen() {
             <RecipeCard
                 // id ={recipe.id}
                 name={recipe.name}
+                image_url = {recipe.image_url}
             />
         ))
         }
-        </ScrollView>
+     
         </View>
         </SafeAreaView>
+        </ScrollView>
     )
 }
 
