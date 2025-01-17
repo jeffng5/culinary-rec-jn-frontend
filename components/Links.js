@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 
 // Generic Link component to receive navigation props and appropriate screen 
 
-function Links({ title, name, screen }) {
+function Links({ title, name, screen, id }) {
     const navigation = useNavigation()
 
 
@@ -12,7 +12,7 @@ function Links({ title, name, screen }) {
         <>
             <Pressable onPress={() => navigation.navigate
             ///// receives name prop to be used in screen
-            (`${screen}`, {name : name})}>
+            (`${screen}`, {name : name, id: id})}>
                 <Text style={styles.linkText}>{title}</Text>
             </Pressable>
         </>

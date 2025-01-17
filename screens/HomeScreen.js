@@ -12,9 +12,9 @@ export default function HomeScreen() {
 
     return (
         <TagContextProvider>
-            <ScrollView style={styles.scrollview}>
+           
                 <SafeAreaView style={styles.container}>
-
+                <ScrollView style={styles.scrollview}>
                     <Toolbar />
 
                     <View style={styles.placement}>
@@ -25,9 +25,9 @@ export default function HomeScreen() {
                         <Wine />
                         <Health />
                     </View>
-
+                    </ScrollView>
                 </SafeAreaView>
-            </ScrollView>
+           
             </TagContextProvider> 
     )
 }

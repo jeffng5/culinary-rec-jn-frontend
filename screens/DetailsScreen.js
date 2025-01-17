@@ -3,15 +3,19 @@ import { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
 import axios from 'axios'
 import { useRoute } from '@react-navigation/native'; 
-
+import { Rating } from 'react-native-ratings';
+import RatingComponent from '../components/RatingComponent'
 
 // Details contain the recipe procedure, image and name 
 // receives route params from RecipeCard.js from the <Link> component
 function DetailsScreen() {
 
     const route = useRoute()
-    const { name }  = route.params
+    const { name, id }  = route.params
+    
     console.log(name);
+    console.log('target this', id)
+
     console.log('THIS IS IT', name)
 
 
@@ -19,6 +23,9 @@ function DetailsScreen() {
     const [individualRecipe, setIndividualRecipe] = useState([]);
     const [imgURL, setImgURL] = useState([]);
     const [nameRec, setNameRec] = useState([]);
+    const [rating, setRating] = useState([]);
+    const [ID, setID] = useState(id);
+    
 
     //API Call to backend to get the indiv. recipes' image_url, procedure, and name
     async function getIndividualRecipes() {
@@ -52,24 +59,33 @@ function DetailsScreen() {
     }, []);
 
    console.log(individualRecipe)
-
+   console.log(ID)
     return (
+        
         <SafeAreaView style = {styles.container}>
+            
             <ScrollView>
-         
             <Text style= {styles.title}>{nameRec}</Text>
             <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${imgURL}`} />
             
             {individualRecipe.map(r => (<View>
             <Text style = {styles.textStyle}>
             {r.step_no}. {r.procedure}</Text>
-         
-            
-            </View>
-                
+            </View> 
                 ))}
-            </ScrollView>
+
+                <Text style= {styles.title}>Rate This:                
+                <RatingComponent id={ID} rating = {individualRecipe.rating} >
+               
+               </RatingComponent></Text>
+
+            
+
+
+             <Text style= {styles.title}>Comment: </Text>
+             </ScrollView>
         </SafeAreaView>
+       
     )
 }
 
@@ -97,6 +113,9 @@ const styles = StyleSheet.create({
         borderRadius: 14,
         marginLeft: 50,
         padding: 15,
+    },
+    ratingStyle: {
+        color: '#496779'
     }
 })
 export default DetailsScreen

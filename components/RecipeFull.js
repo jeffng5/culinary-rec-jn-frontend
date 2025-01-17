@@ -4,6 +4,7 @@ import axios from 'axios'
 import RecipeCard from './RecipeCard'
 import TagButtons from './TagButtons'
 import TagContext from '../hooks/TagContext';
+import RatingComponent from './RatingComponent';
 
 
 const American = 'American'
@@ -29,7 +30,8 @@ const RecipeFull = () => {
     const [recipeResults, setRecipeResults] = useState([]);
     const { tags, setTags } = useContext(TagContext)
     const [buttonPressed, setButtonPressed] = useState(false)
-    const [emptyMessage, setEmptyMessage] = useState([])
+    const [emptyMessage, setEmptyMessage] = useState([]);
+    const [ratingsResults, setRatingsResults] = useState([]);
 
     const tagCtx = useContext(TagContext)
     console.log('tagCtx: ', tagCtx.tags)
@@ -46,6 +48,18 @@ const RecipeFull = () => {
             console.log(error)
         }
     };
+
+    // const getRecipesByRating = async function () {
+    //     try {
+    //         const resp = await axios.get('http://localhost:5002/get-ratings')
+    //         console.log(resp.data)
+    //         setRatingsResults(resp.data)
+    //     } catch (err) {
+    //         console.log(err)
+    //     }
+    // };
+
+
 
     // fetch recipes by tag selected
     async function getRecipesByTag(tag) {
@@ -132,7 +146,9 @@ const RecipeFull = () => {
                         <RecipeCard
                             id={recipe.recipe_id}
                             name={recipe.name}
-                            image_url={recipe.image_url} /></View>
+                            image_url={recipe.image_url} 
+                            divisor = {recipe.divisor}
+                            sumRating= {recipe.sumrating}/></View>
                 ))
                 }
             </View>
