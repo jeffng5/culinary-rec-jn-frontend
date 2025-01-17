@@ -4,16 +4,15 @@ import { Rating } from 'react-native-ratings'
 import axios from 'axios'
 
 
-const RatingComponentReadOnly = ({id, rating}) =>{
+const RatingComponentReadOnly = ({ sumrating, divisor }) =>{
 
-    
+    const rated = (sumrating / divisor)
+    // const [individualRecipe, setIndividualRecipe] = useState([]);
+    // const [input, setInput] = useState(false)
 
-    const [ratings, setRatings] = useState(rating);
-    const [input, setInput] = useState(null)
 
-    console.log(id) 
 
-    console.log({ratings})
+
     return (
    
         <View style= {styles.starBar}>
@@ -25,8 +24,8 @@ const RatingComponentReadOnly = ({id, rating}) =>{
         imageSize={17}
         ratingBackgroundColor= '#496779'
         readonly
-        startingValue={ratings}
-        onRatingPress= {(rating) => setInput(rating)}
+        startingValue={rated}
+        // onRatingPress= {(rating) => setInput(rating)}
        
      />
 

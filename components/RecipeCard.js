@@ -1,57 +1,55 @@
 import { StyleSheet, Image, View} from 'react-native';
-import { useState } from 'react';
-import axios from 'axios'
 import { useNavigation } from '@react-navigation/native'
 import Links from './Links'
-import RatingComponentReadOnly from './RatingComponent-readOnly';
-
+import { Rating } from 'react-native-ratings';
+import React, { useState, useEffect, useContext } from 'react'
+import axios from 'axios'
 
 // gets individual recipe 
 
-const RecipeCard = ({ name, image_url, id, divisor, sumRating}) => {
+const RecipeCard = ({ name, image_url, id }) => {
+
+    const [ratedState, setRatedState] = useState([])
 
     const navigation = useNavigation();
 
-    console.log('divisor', divisor)
-    console.log('sumRating', sumRating)
-    const mean = (sumRating / divisor)
-
-    const [individualRecipe, setIndividualRecipe] = useState([]);
-    const [isPressed, setIsPressed] = useState(false)
-    const [ratingProp, setRatingProp] = useState(mean)
-
-    console.log('ratingProp', ratingProp)
- 
-    async() => {
-
-        let URL = {
-            method: 'GET',
-            url: 'http://localhost:5002/individual-recipes',
-            params: { ids: name },
-            headers: { 'content-type': "application/json" }
-        }
+    console.log('ID', id)
+    const getRecipeRatings = async function () {
         try {
-            await axios.request(URL).then((response) => {
-                const r = response.data;
-                setIndividualRecipe(r)
-                setIsPressed(false)
-                console.log('response obj = ', r)
-            })
-            
-        } catch (err) {
-            console.error(err)
+            const resp = await axios.get('http://localhost:5002/get-all-ratings', id)
+            console.log(resp.data)
+
+            if (resp.data[0].id == id) {
+            let rated = (resp.data[0].sumrating / resp.data[0].divisor)
+            setRatedState(rated)
+            }
+            else {
+                console.log('NO rating yet')
+                return
+            }
+            console.log('RATED', rated)
+        } catch (error) {
+            console.log(error)
         }
-  
     };
 
-// {id}
+    useEffect(()=> {
+        getRecipeRatings()
+    }, [])
 
+    
     return (
         <View style= {styles.textStyle}>
                         
             
             <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${image_url}`} />
-            <RatingComponentReadOnly style={styles.starBar} rating = {ratingProp} id = {id}/>
+            <Rating type='star'
+            ratingCount={5}
+            imageSize={17}
+            ratingBackgroundColor= '#496779'
+            readonly
+            startingValue={ratedState} /> 
+            
             <Links title = {name} name = {name} id = {id} screen='Details'/>
 
             

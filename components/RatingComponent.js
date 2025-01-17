@@ -8,12 +8,14 @@ const RatingComponent = ({id, rating}) =>{
 
     const r = rating
     console.log('R,', r)
-    const [ratings, setRatings] = useState([]);
     const [input, setInput] = useState(null)
 
     console.log(id) 
     console.log('input', {input})
 
+    const handleFinishRating = (rat) => {
+        setInput(rat)
+    }
     const data = {
         ratings: {input},
         id: {id}
@@ -33,9 +35,9 @@ const RatingComponent = ({id, rating}) =>{
     useEffect(() => {
         postRating();
 
-    }, [])
+    }, [input])
 
-    console.log({ratings})
+
     return (
    
         <View style= {styles.starBar}>
@@ -46,8 +48,8 @@ const RatingComponent = ({id, rating}) =>{
         ratingCount={5}
         imageSize={17}
         ratingBackgroundColor= '#496779'
-        startingValue={ratings}
-        onFinishRating= {(rating) => setInput(rating)}
+        startingValue={r}
+        onFinishRating= {handleFinishRating}
        
      />
     </Pressable>
