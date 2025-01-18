@@ -15,19 +15,26 @@ const RecipeCard = ({ name, image_url, id }) => {
 
     console.log('ID', id)
     const getRecipeRatings = async function () {
+        let URL = {
+            method: 'GET',
+            url: 'http://localhost:5002/get-all-ratings',
+            params : {id:  {id} },
+            headers: { 'content-type': 'application/json'}
+        }
         try {
-            const resp = await axios.get('http://localhost:5002/get-all-ratings', id)
-            console.log(resp.data)
-
-            if (resp.data[0].id == id) {
-            let rated = (resp.data[0].sumrating / resp.data[0].divisor)
-            setRatedState(rated)
-            }
-            else {
-                console.log('NO rating yet')
-                return
-            }
-            console.log('RATED', rated)
+            await axios.request(URL).then((resp) => {
+                const r = resp.data;
+                console.log('R', r)
+                if (resp.data[0].id == id) {
+                    let rated = (resp.data[0].sumrating / resp.data[0].divisor)
+                    setRatedState(rated)
+                    }
+                    else {
+                        console.log('NO rating yet')
+                        return
+                    }
+                    console.log('RATED', rated)
+            })
         } catch (error) {
             console.log(error)
         }

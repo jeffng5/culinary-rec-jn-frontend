@@ -25,6 +25,7 @@ function DetailsScreen() {
     const [nameRec, setNameRec] = useState([]);
     const [rating, setRating] = useState([]);
     const [ID, setID] = useState(id);
+
     
 
     //API Call to backend to get the indiv. recipes' image_url, procedure, and name
@@ -46,6 +47,7 @@ function DetailsScreen() {
                 setIndividualRecipe(r)
                 setImgURL(r[0].image_url)
                 setNameRec(r[0].name)
+                setRating((r[0].sumrating / r[0].divisor))
                 console.log('response obj = ', r)
             })
             
@@ -56,10 +58,11 @@ function DetailsScreen() {
 
     useEffect(() => {
         getIndividualRecipes();
+
     }, []);
 
    console.log(individualRecipe)
-   console.log(ID)
+   console.log({rating})
     return (
         
         <SafeAreaView style = {styles.container}>
@@ -71,13 +74,18 @@ function DetailsScreen() {
             {individualRecipe.map(r => (<View>
             <Text style = {styles.textStyle}>
             {r.step_no}. {r.procedure}</Text>
+            
             </View> 
-                ))}
-
-                <Text style= {styles.title}>Rate This:                
-                <RatingComponent id={ID} rating = {individualRecipe.rating} >
+        
+            ))};
+                
+                <View><Text style = {styles.title}>
+                Rate This:</Text></View>
+                <RatingComponent id={ID} >
+                 
                
-               </RatingComponent></Text>
+               </RatingComponent>
+               
 
             
 

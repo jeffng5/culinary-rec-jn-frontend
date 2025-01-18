@@ -4,10 +4,9 @@ import { Rating } from 'react-native-ratings'
 import axios from 'axios'
 
 
-const RatingComponent = ({id, rating}) =>{
+const RatingComponent = ({ id }) =>{
 
-    const r = rating
-    console.log('R,', r)
+
     const [input, setInput] = useState(null)
 
     console.log(id) 
@@ -35,20 +34,20 @@ const RatingComponent = ({id, rating}) =>{
     useEffect(() => {
         postRating();
 
-    }, [input])
+    }, [])
 
 
     return (
    
-        <View style= {styles.starBar}>
+        <View>
         
         <Pressable onPress={() => postRating() }>
         <Rating style= {styles.starBar}
         type='star'
         ratingCount={5}
-        imageSize={17}
+        imageSize={20}
         ratingBackgroundColor= '#496779'
-        startingValue={r}
+        startingValue={0}
         onFinishRating= {handleFinishRating}
        
      />

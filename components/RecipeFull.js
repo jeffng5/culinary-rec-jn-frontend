@@ -82,7 +82,7 @@ const RecipeFull = () => {
         let URL = {
             method: 'GET',
             url: `http://localhost:5002/tags`,
-            params: { ids: [tags] },
+            params: { ids: tagCtx },
             headers: { 'content-type': "application/json" }
         }
         try {
@@ -97,7 +97,9 @@ const RecipeFull = () => {
         }
 
     }
-    if (buttonPressed == true) {
+
+    
+    if (tagCtx == null) {
         deleteTagQuery();
     }
 
