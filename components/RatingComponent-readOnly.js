@@ -13,10 +13,6 @@ const RatingComponentReadOnly = ({ name, image_url, id, sumrating, divisor }) =>
     
     const navigation = useNavigation();
 
-    
-
-
-
     return (
         <>
 

@@ -2,7 +2,7 @@ import { Text, StyleSheet, Image, View, SafeAreaView } from 'react-native';
 import { useState, useEffect } from 'react';
 import { ScrollView } from 'react-native';
 import axios from 'axios'
-import { useRoute } from '@react-navigation/native'; 
+import { useRoute } from '@react-navigation/native';
 import { Rating } from 'react-native-ratings';
 import RatingComponent from '../components/RatingComponent'
 
@@ -11,8 +11,8 @@ import RatingComponent from '../components/RatingComponent'
 function DetailsScreen() {
 
     const route = useRoute()
-    const { name, id }  = route.params
-    
+    const { name, id } = route.params
+
     console.log(name);
     console.log('target this', id)
 
@@ -26,7 +26,7 @@ function DetailsScreen() {
     const [rating, setRating] = useState([]);
     const [ID, setID] = useState(id);
 
-    
+
 
     //API Call to backend to get the indiv. recipes' image_url, procedure, and name
     async function getIndividualRecipes() {
@@ -50,7 +50,7 @@ function DetailsScreen() {
                 setRating((r[0].sumrating / r[0].divisor))
                 console.log('response obj = ', r)
             })
-            
+
         } catch (err) {
             console.error(err)
         }
@@ -61,39 +61,34 @@ function DetailsScreen() {
 
     }, []);
 
-   console.log(individualRecipe)
-   console.log({rating})
+    console.log(individualRecipe)
+    console.log({ rating })
     return (
-        
-        <SafeAreaView style = {styles.container}>
-            
+
+        <SafeAreaView style={styles.container}>
+
             <ScrollView>
-            <Text style= {styles.title}>{nameRec}</Text>
-            <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${imgURL}`} />
-            
-            {individualRecipe.map(r => (<View>
-            <Text style = {styles.textStyle}>
-            {r.step_no}. {r.procedure}</Text>
-            
-            </View> 
-        
-            ))};
-                
-                <View><Text style = {styles.title}>
-                Rate This:</Text></View>
+                <Text style={styles.title}>{nameRec}</Text>
+                <Image style={styles.imgStyle} source={`http://localhost:5002/static/food/${imgURL}`} />
+
+                {individualRecipe.map(r => (<View>
+                    <Text style={styles.textStyle}>
+                        {r.step_no}. {r.procedure}</Text>
+
+                </View>
+
+                ))};
+
+                <View><Text style={styles.title}>
+                    Rate This:</Text></View>
                 <RatingComponent id={ID} >
-                 
-               
-               </RatingComponent>
-               
-
-            
 
 
-             <Text style= {styles.title}>Comment: </Text>
-             </ScrollView>
+                </RatingComponent>
+
+            </ScrollView>
         </SafeAreaView>
-       
+
     )
 }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import axios from 'axios'
 import RecipeCard from '../components/RecipeCard'
+import RatingComponentReadOnly from '../components/RatingComponent-readOnly';
 
 
 function FavoritesScreen() {
@@ -12,7 +13,7 @@ function FavoritesScreen() {
         try {
             const resp = await axios.get('http://localhost:5002/favorites')
 
-        //work on backend route to fetch favorite recipes
+            //work on backend route to fetch favorite recipes
             console.log(resp.data)
             setRecipeResults(resp.data)
 
@@ -26,25 +27,29 @@ function FavoritesScreen() {
     }, []);
 
     return (
-        <ScrollView >
+
         <SafeAreaView >
-            <View style = {{backgroundColor: '#496779'}}>
-            
-                <Text style = {{fontSize: 17, color: 'white', margin: 20}}>
-                    Here are my favorites:
-                </Text>
-        {recipeResults.map(recipe => (
-            <RecipeCard
-                // id ={recipe.id}
-                name={recipe.name}
-                image_url = {recipe.image_url}
-            />
-        ))
-        }
-     
-        </View>
+            <ScrollView >
+                <View style={{ backgroundColor: '#496779' }}>
+
+                    <Text style={{ fontSize: 17, color: 'white', margin: 20 }}>
+                        Here are my favorites:
+                    </Text>
+                    {recipeResults.map(recipe => (
+                        <RatingComponentReadOnly
+                            id={recipe.id}
+                            name={recipe.name}
+                            image_url={recipe.image_url}
+                            sumrating={recipe.sumrating}
+                            divisor={recipe.divisor}
+                        />
+                    ))
+                    }
+
+                </View>
+            </ScrollView>
         </SafeAreaView>
-        </ScrollView>
+
     )
 }
 
