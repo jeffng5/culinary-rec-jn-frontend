@@ -66,7 +66,7 @@ const RecipeFull = () => {
                 const r = response.data;
                 setRecipeResults(r)
                 console.log('HERE is the response object:', r)
-            
+                setButtonPressed(true)
             })
         } catch (err) {
             console.log(err)
@@ -82,7 +82,7 @@ const RecipeFull = () => {
         let URL = {
             method: 'GET',
             url: `http://localhost:5002/tags`,
-            params: { ids: tagCtx },
+            params: { ids: tags },
             headers: { 'content-type': "application/json" }
         }
         try {
@@ -99,15 +99,17 @@ const RecipeFull = () => {
     }
 
     
-    if (tagCtx == null) {
+    if (buttonPressed == true) {
         deleteTagQuery();
     }
 
 
     useEffect(() => {
         getAllRecipes();
+       
     }, []);
 
+    
     return (
         <>
 
@@ -134,12 +136,12 @@ const RecipeFull = () => {
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start' }}>
                 {recipeResults.map(recipe => (
                     <View style={{ width: '50%' }}>
-                        <RecipeCard
-                            id={recipe.recipe_id}
+                        <RatingComponentReadOnly 
+                            id={recipe.id}
                             name={recipe.name}
                             image_url={recipe.image_url}
-                            // sumrating = {recipe.sumrating}  
-                            // divisor = {recipe.divisor} 
+                            sumrating = {recipe.sumrating}  
+                            divisor = {recipe.divisor} 
                             /> 
                     </View>
                 ))

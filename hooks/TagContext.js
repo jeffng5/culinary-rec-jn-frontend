@@ -3,13 +3,14 @@ import { createContext, useState } from 'react';
 const TagContext = createContext({ 
     
     tags : [], setTags: () => ([]), 
-    id :[]
+    rated :[]
 
 });
 
 export function TagContextProvider({children}) {
 
     const [tags, setTags] = useState([])
+    const [rated, setRated] = useState([]) 
 
     function addNameHandler(props) {
         setName((prevUserName)=> [...prevUserName, props]);
@@ -18,7 +19,7 @@ export function TagContextProvider({children}) {
     const context = {tags, setTags,  
     // tagFunction : addTagHandler,
     // removeTagFunction : removeTagHandler
-    // name, setName, 
+    rated, setRated 
     // addNameHandler: addNameHandler, 
     // removeNameHandler: removeNameHandler
 };
