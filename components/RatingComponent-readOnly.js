@@ -10,12 +10,10 @@ import TagContext from '../hooks/TagContext'
 
 const RatingComponentReadOnly = ({ name, image_url, id, sumrating, divisor }) =>{
 
-    const { rated } = useContext(TagContext)
+    
     const navigation = useNavigation();
 
-    const ratedCtx = useContext(TagContext)
-    const [input, setInput] = useState(sumrating/divisor)
-    console.log('RATED', rated)
+    
 
 
 
@@ -26,16 +24,9 @@ const RatingComponentReadOnly = ({ name, image_url, id, sumrating, divisor }) =>
         <View style= {styles.textStyle}>
         
         <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${image_url}`} />
-        
-        <Rating
-        type ='star'
-        ratingCount={5}
-        imageSize= {17}
-        ratingBackgroundColor = '#486779'
-        readonly 
-        startingValue = {rated}
-        />
-
+     
+        <RecipeCard  sumrating = {sumrating}  
+        divisor = {divisor} />
         <Links title = {name} name = {name} screen = 'Details' id = {id} /> 
 
        

@@ -1,4 +1,4 @@
-import { StyleSheet, Image, View} from 'react-native';
+import { StyleSheet, Text, Image, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 
 import { Rating } from 'react-native-ratings';
@@ -8,14 +8,10 @@ import axios from 'axios'
 
 // gets individual recipe 
 
-const RecipeCard = ({sumrating, divisor}) => {
-    function operation(sumrating, divisor) {
-        let rated =  sumrating/divisor
-        return rated
-    }
+const RecipeCard = ({ sumrating, divisor }) => {
 
-    let rated = operation(sumrating, divisor)
-    console.log('RATED', operation(sumrating, divisor))
+    let rated = (sumrating / divisor)
+    console.log('RATING',  rated )
     // const getRecipeRatings = async function () {
     //     let URL = {
     //         method: 'GET',
@@ -26,7 +22,7 @@ const RecipeCard = ({sumrating, divisor}) => {
     //     try {
     //         await axios.request(URL).then((resp) => {
     //             console.log('ratingsField', resp.data)
-  
+
     //         } 
     //         )
     //         ;
@@ -39,13 +35,40 @@ const RecipeCard = ({sumrating, divisor}) => {
     //     getRecipeRatings()
     // }, [])
 
-    
+if (rated){
     return (
-<>
-{rated}
-</>
+        <>
+            <Rating style= {styles.starBar}
+                type='star'
+                ratingCount={5}
+                imageSize={17}
+                ratingBackgroundColor='#486779'
+                readonly
+                startingValue={rated}
+            />
+
+
+        </>
+    )} 
+    
+else {
+    return (
+        <>
+        <Rating style= {styles.starBar}
+            type='star'
+            ratingCount={5}
+            imageSize={17}
+            ratingBackgroundColor='#486779'
+            readonly
+            startingValue={0}
+        />
+        <Text style= {styles.textStyle}>Not Rated Yet</Text>
+
+
+    </>
     )
-    };
+    }
+};
 
 const styles = StyleSheet.create({
 
@@ -53,9 +76,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Arial',
         flexWrap: 'wrap',
         color: 'white',
-        paddingBottom: 20,
-        fontSize: 8,
-        marginLeft: 50,
+        fontSize: 14,
+        marginLeft: 37,
         textAlign: 'left'
     },
 
@@ -69,8 +91,10 @@ const styles = StyleSheet.create({
         borderRadius: 14
     },
     starBar: {
+        marginTop: 10,
+        paddingLeft: -20,
         textAlign: 'left',
-        paddingLeft: 50
+        alignItems: 'left'
 
     }
 });

@@ -109,7 +109,11 @@ const RecipeFull = () => {
        
     }, []);
 
-    
+
+// {recipeResults.map(r => (
+//     <RecipeCard sumrating= {r.sumrating} 
+//             divisor = {r.divisor})) />
+// } 
     return (
         <>
 
@@ -140,9 +144,8 @@ const RecipeFull = () => {
                             id={recipe.id}
                             name={recipe.name}
                             image_url={recipe.image_url}
-                            sumrating = {recipe.sumrating}  
-                            divisor = {recipe.divisor} 
-                            /> 
+                            sumrating = {recipe.sumrating}
+                            divisor = {recipe.divisor} />     
                     </View>
                 ))
                 }
