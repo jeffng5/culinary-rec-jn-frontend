@@ -11,7 +11,7 @@ function FavoritesScreen() {
 
     const getAllRecipes = async function () {
         try {
-            const resp = await axios.get('http://localhost:5002/favorites')
+            const resp = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/favorites`)
 
             //work on backend route to fetch favorite recipes
             console.log(resp.data)

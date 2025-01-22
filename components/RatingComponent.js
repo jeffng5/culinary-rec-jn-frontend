@@ -22,7 +22,7 @@ const RatingComponent = ({ id }) =>{
     
     const postRating = async function() {
         try {
-            const resp = await axios.post('http://localhost:5002/ratings', data)
+            const resp = await axios.post(`${process.env.EXPO_PUBLIC_API_URL}/ratings`, data)
             console.log(resp)
         } catch(err) {
             console.log(err)

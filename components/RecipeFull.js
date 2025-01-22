@@ -40,7 +40,7 @@ const RecipeFull = () => {
 /// fetch all recipes
     const getAllRecipes = async function () {
         try {
-            const resp = await axios.get('http://localhost:5002')
+            const resp = await axios.get(process.env.EXPO_PUBLIC_API_URL)
             console.log(resp.data)
             setRecipeResults(resp.data)
 
@@ -57,7 +57,7 @@ const RecipeFull = () => {
 
         let URL = {
             method: 'GET',
-            url: `http://localhost:5002/tags`,
+            url: `${process.env.EXPO_PUBLIC_API_URL}/tags`,
             params: { ids: [tag, tagz] },
             headers: { 'content-type': "application/json" }
         }
@@ -81,7 +81,7 @@ const RecipeFull = () => {
 
         let URL = {
             method: 'GET',
-            url: `http://localhost:5002/tags`,
+            url: `${process.env.EXPO_PUBLIC_API_URL}/tags`,
             params: { ids: tags },
             headers: { 'content-type': "application/json" }
         }
@@ -140,7 +140,8 @@ const RecipeFull = () => {
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start' }}>
                 {recipeResults.map(recipe => (
                     <View style={{ width: '50%' }}>
-                        <RatingComponentReadOnly 
+                        <RatingComponentReadOnly
+                            key = {recipe.id} 
                             id={recipe.id}
                             name={recipe.name}
                             image_url={recipe.image_url}

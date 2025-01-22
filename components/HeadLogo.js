@@ -10,7 +10,7 @@ return (
     <View style= {{paddingTop: 5, paddingBottom: 5}}>
 <Image style={styles.imgSize} source={require('../assets/white_logo_cropped.png')} />
 </View> 
-<Text style = {styles.headerText}>Chef Jeff's recipes</Text>
+<Text style = {styles.headerText}>Chef Jeff's Recipes</Text>
  </View>
 
     </View>

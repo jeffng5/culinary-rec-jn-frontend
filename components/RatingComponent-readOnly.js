@@ -19,7 +19,7 @@ const RatingComponentReadOnly = ({ name, image_url, id, sumrating, divisor }) =>
    
         <View style= {styles.textStyle}>
         
-        <Image style={styles.imgStyle} source = {`http://localhost:5002/static/food/${image_url}`} />
+        <Image style={styles.imgStyle} source = {`${process.env.EXPO_PUBLIC_API_URL}/static/food/${image_url}`} />
      
         <RecipeCard  sumrating = {sumrating}  
         divisor = {divisor} />

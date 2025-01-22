@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "culinary-rec-jn",
+    "name": "Chef Jeff's",
     "slug": "culinary-rec-jn",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -13,20 +13,25 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.halujeff5.culinaryrecjn"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.halujeff5.culinaryrecjn"
     },
     "web": {
-      "favicon": "./assets/white_logo_transparent.png"
+      "favicon": "./assets/white_logo_transparent.png",
+      "output": "single",
+      "bundler": "metro"
     },
-    "expo": {
-      "web": {
-        "bundler": "metro"
+    
+    "extra": {
+      "eas": {
+        "projectId": "6698abe3-2b69-48d9-8104-ae62f05686b4"
       }
     }
   }

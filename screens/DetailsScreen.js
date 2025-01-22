@@ -33,7 +33,7 @@ function DetailsScreen() {
         console.log('I AM HERE NAME')
         let URL = {
             method: 'GET',
-            url: 'http://localhost:5002/individual-recipes',
+            url: `${process.env.EXPO_PUBLIC_API_URL}/individual-recipes`,
             params: { ids: name },
             headers: { 'content-type': "application/json" }
         }
@@ -69,7 +69,7 @@ function DetailsScreen() {
 
             <ScrollView>
                 <Text style={styles.title}>{nameRec}</Text>
-                <Image style={styles.imgStyle} source={`http://localhost:5002/static/food/${imgURL}`} />
+                <Image style={styles.imgStyle} source={`${process.env.EXPO_PUBLIC_API_URL}/static/food/${imgURL}`} />
 
                 {individualRecipe.map(r => (<View>
                     <Text style={styles.textStyle}>
