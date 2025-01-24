@@ -2,9 +2,9 @@ import { View, Text, Pressable, StyleSheet } from 'react-native'
 import { useState, useContext } from 'react';
 import  TagContext  from '../hooks/TagContext'
 
-
+// Tag Buttons in Home Screen passing down tag (children)
 function TagButtons({children, onPress}) {
-   
+   // context to pass tags in provider
     const {tags, setTags } = useContext(TagContext)
     const [isPressed, setIsPressed] = useState(false)
     const [tagValues, setTagValues] = useState([])
@@ -31,12 +31,8 @@ function TagButtons({children, onPress}) {
             
             setTags(tags.filter(tag => tag !== ans))
             setIsPressed(false)
-
-
             console.log('Im here!!!!:', tags)
-            
             e.preventDefault();
-     
             console.log('button is unselected')
            
         }

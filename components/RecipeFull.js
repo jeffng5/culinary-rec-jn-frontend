@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { StyleSheet, View } from 'react-native';
 import axios from 'axios'
-import RecipeCard from './RecipeCard'
 import TagButtons from './TagButtons'
 import TagContext from '../hooks/TagContext';
 import RatingComponentReadOnly from './RatingComponent-readOnly';
 
-
+/// The tags available
 const American = 'American'
 const Chinese = 'Chinese'
 const Asian = 'Asian'
@@ -98,7 +97,7 @@ const RecipeFull = () => {
 
     }
 
-    
+    // delete tag list function
     if (buttonPressed == true) {
         deleteTagQuery();
     }
@@ -110,10 +109,6 @@ const RecipeFull = () => {
     }, []);
 
 
-// {recipeResults.map(r => (
-//     <RecipeCard sumrating= {r.sumrating} 
-//             divisor = {r.divisor})) />
-// } 
     return (
         <>
 

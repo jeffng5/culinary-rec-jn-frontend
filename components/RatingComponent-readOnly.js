@@ -2,34 +2,27 @@ import React, { useState, useEffect, useContext } from 'react'
 import { StyleSheet, View, Image } from 'react-native'
 import Links from './Links'
 import { useNavigation } from '@react-navigation/native'
-import { Rating } from 'react-native-ratings'
-import axios from 'axios'
 import RecipeCard from './RecipeCard'
-import TagContext from '../hooks/TagContext'
 
 
-const RatingComponentReadOnly = ({ name, image_url, id, sumrating, divisor }) =>{
 
-    
+const RatingComponentReadOnly = ({ name, image_url, id, sumrating, divisor }) => {
+
+
     const navigation = useNavigation();
 
+    /// This returns each card which includes image, rating, and link to individual recipe
     return (
         <>
+            <View style={styles.textStyle}>
 
-   
-        <View style= {styles.textStyle}>
-        
-        <Image style={styles.imgStyle} source = {`${process.env.EXPO_PUBLIC_API_URL}/static/food/${image_url}`} />
-     
-        <RecipeCard  sumrating = {sumrating}  
-        divisor = {divisor} />
-        <Links title = {name} name = {name} screen = 'Details' id = {id} /> 
+                <Image style={styles.imgStyle} source={`${process.env.EXPO_PUBLIC_API_URL}/static/food/${image_url}`} />
 
-       
-     
-
-    </View>
-    </>
+                <RecipeCard sumrating={sumrating}
+                    divisor={divisor} />
+                <Links title={name} name={name} screen='Details' id={id} />
+            </View>
+        </>
     )
 }
 
