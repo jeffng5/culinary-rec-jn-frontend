@@ -39,7 +39,7 @@ const RecipeFull = () => {
 /// fetch all recipes
     const getAllRecipes = async function () {
         try {
-            const resp = await axios.get(process.env.EXPO_PUBLIC_API_URL)
+            const resp = await axios.get(`${process.env.EXPO_PUBLIC_API_URL}/home`)
             console.log(resp.data)
             setRecipeResults(resp.data)
 

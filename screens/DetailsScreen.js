@@ -69,7 +69,7 @@ function DetailsScreen() {
 
             <ScrollView>
                 <Text style={styles.title}>{nameRec}</Text>
-                <Image style={styles.imgStyle} source={`${process.env.EXPO_PUBLIC_API_URL}/static/food/${imgURL}`} />
+                <Image style={styles.imgStyle} source={`${process.env.EXPO_PUBLIC_IMAGES_URL}${imgURL}`} />
 
                 {individualRecipe.map(r => (<View>
                     <Text style={styles.textStyle}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View, Pressable } from 'react-native'
 import { Rating } from 'react-native-ratings'
 import axios from 'axios'
@@ -31,14 +31,6 @@ const RatingComponent = ({ id }) => {
             }
         }
     }
-
-
-
-    // useEffect(() => {
-    //     postRating();
-
-    // }, [])
-
 
     return (
 
