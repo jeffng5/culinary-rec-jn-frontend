@@ -1,6 +1,5 @@
 import { StyleSheet, Text, Image, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native'
-
 import { Rating } from 'react-native-ratings';
 import React, { useState, useEffect, useContext } from 'react'
 import RatingComponentReadOnly from './RatingComponent-readOnly';
@@ -37,49 +36,60 @@ const RecipeCard = ({ sumrating, divisor }) => {
 
 if (rated){
     return (
-        <>
+        <View style={styles.ratingContainer}>
             <Rating style= {styles.starBar}
-                type='star'
+                type='custom'
+                ratingImage= {require('../assets/food/new-star.png')}
+                ratingColor= 'goldenrod'
+                ratingBackgroundColor='#496779'
                 ratingCount={5}
-                imageSize={17}
-                ratingBackgroundColor='#486779'
+                imageSize={18}
+                // ratingBackgroundColor='turquoise'
                 readonly
                 startingValue={rated}
             />
 
 
-        </>
+        </View>
     )} 
     
 else {
     return (
-        <>
+        <View style={styles.ratingContainer}>
         <Rating style= {styles.starBar}
-            type='star'
+            type='custom'
+            ratingImage= {require('../assets/food/new-star.png')}
+            ratingColor= 'goldenrod'
+            ratingBackgroundColor='#496779'
             ratingCount={5}
-            imageSize={17}
-            ratingBackgroundColor='#486779'
+            imageSize={18}
             readonly
             startingValue={0}
         />
-        <Text style= {styles.textStyle}>Not Rated Yet</Text>
+    
 
 
-    </>
+    </View>
     )
     }
 };
 
 const styles = StyleSheet.create({
 
-    textStyle: {
-        fontFamily: 'Arial',
-        flexWrap: 'wrap',
-        color: 'white',
-        fontSize: 14,
-        marginLeft: 37,
-        textAlign: 'left'
+    ratingContainer: {
+        padding: 0,
+        marginLeft: -40,
+        marginTop: 5,
     },
+
+    // textStyle: {
+    //     fontFamily: 'Arial',
+    //     flexWrap: 'wrap',
+    //     color: 'white',
+    //     fontSize: 14,
+    //     marginLeft: 17,
+    //     textAlign: 'left'
+    // },
 
     buttonStyle: {
         width: 50,
@@ -90,13 +100,13 @@ const styles = StyleSheet.create({
         width: 120,
         borderRadius: 14
     },
-    starBar: {
-        marginTop: 10,
-        paddingLeft: -20,
-        textAlign: 'left',
-        alignItems: 'left'
-
-    }
+    // starBar: {
+    //     marginTop: 10,
+    //     flexDirection: 'column',
+    //     paddingLeft: 0,
+    //     padding: 0
+ 
+    // }
 });
 
 

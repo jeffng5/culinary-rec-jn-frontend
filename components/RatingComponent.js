@@ -38,12 +38,15 @@ const RatingComponent = ({ id }) => {
 
             <Pressable onPress={() => postRating()}>
                 <Rating style={styles.starBar}
-                    type='star'
-                    ratingCount={5}
-                    imageSize={20}
-                    ratingBackgroundColor='#496779'
-                    startingValue={0}
-                    onFinishRating={handleFinishRating}
+                type='custom'
+                ratingImage= {require('../assets/food/new-star.png')}
+                ratingColor= 'goldenrod'
+                ratingBackgroundColor='#496779'
+                ratingCount={5}
+                imageSize={18}
+                // ratingBackgroundColor='turquoise'
+                startingValue={0}
+                onFinishRating={handleFinishRating}
 
                 />
             </Pressable>
@@ -54,7 +57,9 @@ const RatingComponent = ({ id }) => {
 
 const styles = StyleSheet.create({
     starBar: {
-        textAlign: 'left',
+        justifyContent: 'left',
+        flexDirection: 'column',        
+        alignItems: 'left',
         marginLeft: 10,
 
 

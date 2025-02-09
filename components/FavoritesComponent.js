@@ -6,7 +6,7 @@ import RecipeCard from './RecipeCard'
 
 
 
-const RatingComponentReadOnly = ({ name, image_url, id, sumrating, divisor }) => {
+const FavoritesComponent = ({ name, image_url, id, sumrating, divisor }) => {
 
 
     const navigation = useNavigation();
@@ -34,14 +34,16 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingBottom: 45,
         fontSize: 8,
-        marginLeft: 44,
-
-        textAlign: 'left'
+        marginLeft: 30,
+        marginRight: 30,
     },
     imgStyle: {
-        height: 120,
-        width: 120,
-        borderRadius: 14
+        height: 220,
+        width: 220,
+        borderRadius: 14,
+        marginLeft: 30,
+        marginRight: 30,
+        flex: 1,
     },
     cardStyle : {
         marginLeft: -50,
@@ -50,4 +52,4 @@ const styles = StyleSheet.create({
 })
 
 
-export default RatingComponentReadOnly
+export default FavoritesComponent
